@@ -2,51 +2,46 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
+using System.Collections.ObjectModel;
 
 
 
 namespace desktop_app
 {
-    class szkola
+    class School
     {
-
-        List<student> students { get; set; }
-
-        List<teacher> teachers { get; set; }
-
-        List<employee> employeess { get; set; }
-
-        class person
+        public ObservableCollection<School.Student> students;
+        public class Person
         {
-            string first_name { get; set; }
-            string last_name { get; set; }
-            string mothers_name { get; set; }
-            string fathers_name { get; set; }
-            string gender { get; set; }
-            string pesel { get; set; }
+            public string first_name { get; set; }
+            public string last_name { get; set; }
+            public string mothers_name { get; set; }
+            public string fathers_name { get; set; }
+            public string gender { get; set; }
+            public string pesel { get; set; }
             DateTime birth_date { get; set; }
         }
 
-        class group {
+        class Group {
             string name { get; set; }
         }
 
-        class student : person
+        public class Student : Person
         {
-            group school_class { get; set;}
+            Group school_class { get; set;}
         }
 
-        class employee : person
+        class Employee : Person
         {
             Bitmap photo { get; set; }
             string job_position { get; set; }
         }
 
-        class teacher : employee
+        class Teacher : Employee
         {
             string supervising { get; set; }
             List<string> subjects { get; set; }
-            List<KeyValuePair<group, int>> godziny {get; set;}
+            List<KeyValuePair<Group, int>> godziny {get; set;}
             DateTime emplayment_date { get; set; }
         }
     }

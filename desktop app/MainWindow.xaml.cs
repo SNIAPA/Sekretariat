@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace desktop_app
 {
@@ -20,9 +21,17 @@ namespace desktop_app
     /// </summary>
     public partial class MainWindow : Window
     {
+        School school = new School();
+
         public MainWindow()
         {
             InitializeComponent();
+
+
+            
+            school.students.Add(new School.Student() {first_name = "adam"});
+
+            dataGrid1.ItemsSource = school.students;
         }
     }
 }

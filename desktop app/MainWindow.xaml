@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:desktop_app"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        ResizeMode="NoResize"
+        Title="MainWindow" Height="450" Width="800" SizeToContent="Height">
     <Grid>
-
+        <TabControl Height="390" VerticalAlignment="Top">
+            <TabItem Header="uczniowie">
+                <DataGrid AutoGenerateColumns="False" 
+                          Height="360"
+                          HorizontalAlignment="Center" 
+                          Name="dataGrid1" 
+                          VerticalAlignment="Top" > 
+                    <DataGrid.Columns >
+                        <DataGridTextColumn Header="Imie" Binding="{Binding Path=first_name}" MinWidth="50" />
+                        <DataGridTextColumn Header="Nazwisko" Binding="{Binding Path=last_name}" MinWidth="50" />
+                        <DataGridTextColumn Header="Imie ojca" Binding="{Binding Path=fathers_name}" MinWidth="50" />
+                        <DataGridTextColumn Header="Imie matki" Binding="{Binding Path=mothers_name}" MinWidth="50" />
+                        <DataGridTextColumn Header="plec" Binding="{Binding Path=gender}" MinWidth="50" />
+                        <DataGridTextColumn Header="pesel" Binding="{Binding Path=pesel}" MinWidth="50" />
+                        <DataGridTextColumn Header="klasa" Binding="{Binding Path=school_class}" MinWidth="50" />
+                        <DataGridTextColumn Header="Data urodzenia" Binding="{Binding Path=birth_date}" MinWidth="50" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+        <Grid Height="45" VerticalAlignment="Top" Margin="0,390,0,0" >
+            <Button Margin="80,12,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Import" Height="20px" Width="50px"></Button>
+            <Button Margin="10,12,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Export" Height="20px" Width="50px"></Button>
+        </Grid>
     </Grid>
 </Window>
