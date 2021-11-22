@@ -2,6 +2,6 @@
 
 ## TODO
 
-    * [_] struktura
+    - [ ] structure
 
 ## BUSG
