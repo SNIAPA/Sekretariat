@@ -1,1 +1,7 @@
 # Sekretariat
+
+## TODO
+
+    * [ ] struktura
+
+## BUSG
