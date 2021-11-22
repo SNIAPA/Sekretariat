@@ -2,6 +2,7 @@
 
 ## TODO
 
-    - [ ] structure
+- [ ] structure
+- [ ] Mercury
 
 ## BUSG
