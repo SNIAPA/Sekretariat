@@ -14,7 +14,7 @@ namespace desktop_app
 
         List<teacher> teachers { get; set; }
 
-        List<employee> emplayeess { get; set; }
+        List<employee> employeess { get; set; }
 
         class person
         {
