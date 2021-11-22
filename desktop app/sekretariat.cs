@@ -10,6 +10,12 @@ namespace desktop_app
 {
     class School
     {
+
+        public School()
+        {
+            students = new ObservableCollection<School.Student>();
+        }
+
         public ObservableCollection<School.Student> students;
         public class Person
         {
@@ -19,7 +25,7 @@ namespace desktop_app
             public string fathers_name { get; set; }
             public string gender { get; set; }
             public string pesel { get; set; }
-            DateTime birth_date { get; set; }
+            public string birth_date { get; set; }
         }
 
         class Group {
