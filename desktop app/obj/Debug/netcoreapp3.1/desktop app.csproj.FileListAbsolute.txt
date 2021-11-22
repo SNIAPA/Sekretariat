@@ -1,0 +1,27 @@
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\desktop app.exe
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\desktop app.deps.json
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\desktop app.runtimeconfig.json
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\desktop app.runtimeconfig.dev.json
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\desktop app.dll
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\desktop app.pdb
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.csproj.AssemblyReference.cache
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.csproj.ResolveComReference.cache
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app_MarkupCompile.cache
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app_MarkupCompile.lref
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.g.resources
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.AssemblyInfoInputs.cache
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.AssemblyInfo.cs
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.csproj.CoreCompileInputs.cache
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.csproj.CopyComplete
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.dll
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.pdb
+C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.genruntimeconfig.cache
