@@ -22,6 +22,9 @@ namespace desktop_app
             public string gender { get; set; }
             public string pesel { get; set; }
             public string birth_date { get; set; }
+
+            
+
         }
 
         public class Group {

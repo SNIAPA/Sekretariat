@@ -25,7 +25,7 @@
                         <DataGridTemplateColumn Header="Delee">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Delee"/>
+                                    <Button Content="Delee" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
