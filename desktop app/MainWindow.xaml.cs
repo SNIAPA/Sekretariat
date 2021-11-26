@@ -13,25 +13,31 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace desktop_app
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction log ic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+
         School school = new School();
+
 
         public MainWindow()
         {
             InitializeComponent();
 
 
-            
             school.students.Add(new School.Student() {first_name = "adam"});
 
             dataGrid1.ItemsSource = school.students;
+        }
+        void delete(object sender, EventArgs e)
+        {
+            Debug.WriteLine(sender.ToString());
         }
     }
 }

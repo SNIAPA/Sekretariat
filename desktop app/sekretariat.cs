@@ -4,8 +4,6 @@ using System.Text;
 using System.Drawing;
 using System.Collections.ObjectModel;
 
-
-
 namespace desktop_app
 {
     class School
@@ -13,10 +11,10 @@ namespace desktop_app
 
         public School()
         {
-            students = new ObservableCollection<School.Student>();
+            students = new List<Student>();
         }
-
-        public ObservableCollection<School.Student> students;
+        
+        public List<Student> students;
         public class Person
         {
             public string first_name { get; set; }
@@ -48,7 +46,7 @@ namespace desktop_app
             string supervising { get; set; }
             List<string> subjects { get; set; }
             List<KeyValuePair<Group, int>> godziny {get; set;}
-            DateTime emplayment_date { get; set; }
+            DateTime employment_date { get; set; }
         }
     }
 }
