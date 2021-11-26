@@ -8,13 +8,11 @@ namespace desktop_app
 {
     class School
     {
+        public ObservableCollection<Student> students;
+        public ObservableCollection<Teacher> teachers;
+        public ObservableCollection<Employee> employees;
+        public ObservableCollection<Group> groups;
 
-        public School()
-        {
-            students = new List<Student>();
-        }
-        
-        public List<Student> students;
         public class Person
         {
             public string first_name { get; set; }
@@ -26,27 +24,37 @@ namespace desktop_app
             public string birth_date { get; set; }
         }
 
-        class Group {
+        public class Group {
             string name { get; set; }
         }
 
         public class Student : Person
         {
             Group school_class { get; set;}
+            List<Group> groups { get; set;}
         }
 
-        class Employee : Person
+        public class Employee : Person
         {
             Bitmap photo { get; set; }
             string job_position { get; set; }
         }
 
-        class Teacher : Employee
+        public class Teacher : Employee
         {
             string supervising { get; set; }
             List<string> subjects { get; set; }
             List<KeyValuePair<Group, int>> godziny {get; set;}
             DateTime employment_date { get; set; }
         }
+
+        public School()
+        {
+            students = new ObservableCollection<Student>();
+            teachers = new ObservableCollection<Teacher>();
+            employees = new ObservableCollection<Employee>();
+            groups = new ObservableCollection<Group>();
+        }
+
     }
 }

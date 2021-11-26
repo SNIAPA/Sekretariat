@@ -13,7 +13,7 @@
                 <DataGrid AutoGenerateColumns="False" 
                           Height="360"
                           HorizontalAlignment="Center" 
-                          Name="dataGrid1" 
+                          Name="student_list" 
                           VerticalAlignment="Top" > 
                     <DataGrid.Columns >
                         <DataGridTextColumn Header="Imie" Binding="{Binding Path=first_name}" MinWidth="50" />
@@ -25,7 +25,7 @@
                         <DataGridTemplateColumn Header="Delee">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Delee" Command="Delete"/>
+                                    <Button Content="Delee"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

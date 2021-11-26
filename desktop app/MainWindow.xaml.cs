@@ -23,21 +23,21 @@ namespace desktop_app
     public partial class MainWindow : Window
     {
 
-        School school = new School();
+        School school;
 
 
         public MainWindow()
         {
             InitializeComponent();
 
+            school = new School();
 
-            school.students.Add(new School.Student() {first_name = "adam"});
+            student_list.ItemsSource = school.students;
 
-            dataGrid1.ItemsSource = school.students;
+
         }
-        void delete(object sender, EventArgs e)
-        {
-            Debug.WriteLine(sender.ToString());
-        }
+
+
+
     }
 }
