@@ -25,3 +25,4 @@ C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreap
 C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.dll
 C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.pdb
 C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.genruntimeconfig.cache
+C:\Users\student\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
