@@ -26,3 +26,29 @@ C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreap
 C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.pdb
 C:\Users\student\source\repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.genruntimeconfig.cache
 C:\Users\student\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\desktop app.exe
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\desktop app.deps.json
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\desktop app.runtimeconfig.json
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\desktop app.runtimeconfig.dev.json
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\desktop app.dll
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\desktop app.pdb
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.csproj.AssemblyReference.cache
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.csproj.ResolveComReference.cache
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app_MarkupCompile.cache
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app_MarkupCompile.lref
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.g.resources
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.AssemblyInfoInputs.cache
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.AssemblyInfo.cs
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.csproj.CoreCompileInputs.cache
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.dll
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.pdb
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.genruntimeconfig.cache

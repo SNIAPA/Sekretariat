@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "GlyO/LGQxx8gH8wgHnQbaq9kiY0m9o8e30rvCMchP3orc8+Mz4ZtBQdFTJn2ZiROES2g0x/sdz63ujG8GFEETA==",
+  "dgSpecHash": "GtlFNJ9NxuaicPAKUd+fGJhRnCoeGURpmf5xUBDaU/mnU8I3CHbUqp+cvLl2rROVW9CoAs9fAjInqOeQ3wFFFw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\student\\Source\\Repos\\SNIAPA\\Sekretariat\\desktop app\\desktop app.csproj",
+  "projectFilePath": "C:\\Users\\huber\\Source\\Repos\\SNIAPA\\Sekretariat\\desktop app\\desktop app.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\student\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
-    "C:\\Users\\student\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512"
+    "C:\\Users\\huber\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\huber\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }
