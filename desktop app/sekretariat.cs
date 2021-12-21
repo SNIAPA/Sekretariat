@@ -10,10 +10,6 @@ namespace desktop_app
     class School
     {
 
-        List<Student> students;
-        List<Student> teachers;
-        List<Student> groups;
-
         public class Person
         {
 
@@ -24,7 +20,7 @@ namespace desktop_app
             public string gender { get; set; }
             public string pesel { get; set; }
             public string birth_date { get; set; }
-            public string photo { get; set; }
+            public string photo { get; set; } = "https://www.pphfoundation.ca/wp-content/uploads/2018/05/default-avatar.png";
             public DateTime data_ur { get; set; }
             public Person() { }
         }
@@ -50,6 +46,21 @@ namespace desktop_app
             List<string> subjects { get; set; }
             List<KeyValuePair<Group, int>> godziny {get; set;}
             DateTime employment_date { get; set; }
+        }
+
+    }
+
+    class SchoolView
+    {
+        public ObservableCollection<School.Student> students;
+        public ObservableCollection<School.Teacher> teachers;
+        public ObservableCollection<School.Group> groups;
+
+        public SchoolView()
+        {
+            students = new ObservableCollection<School.Student>();
+            teachers = new ObservableCollection<School.Teacher>();
+            groups = new ObservableCollection<School.Group>();
         }
 
     }

@@ -10,24 +10,33 @@ namespace desktop_app
     class IEmodule
     {
 
-        public bool import()
+        
+
+        public static SchoolView import()
         {
+            //TODO convert to list
             OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Json files (*.json)|*.json";
 
-            string rawFile;
+            if (ofd.ShowDialog() != true)
+                return new SchoolView();
 
-            if (ofd.ShowDialog() == true)
-                rawFile = File.ReadAllText(ofd.FileName);
-            else
-                return false;
+            string rawFile = File.ReadAllText(ofd.FileName);
 
-            JsonConvert.DeserializeObject<School>(rawFile);
-
-            return true;
+            return JsonConvert.DeserializeObject<SchoolView>(rawFile);
         }
 
-        public void export()
+        public static bool export(SchoolView school)
         {
+            //TODO convert to list
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Json files (*.json)|*.json";
+
+            if (sfd.ShowDialog() != true)
+                return false;
+
+            File.WriteAllText(sfd.FileName, JsonConvert.SerializeObject(school));
+            return true;
 
         }
     }
