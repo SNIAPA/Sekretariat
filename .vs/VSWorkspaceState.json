@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\desktop app"
   ],
-  "SelectedNode": "\\desktop app.sln",
+  "SelectedNode": "\\desktop app\\MainWindow.xaml.cs",
   "PreviewInSolutionExplorer": false
 }

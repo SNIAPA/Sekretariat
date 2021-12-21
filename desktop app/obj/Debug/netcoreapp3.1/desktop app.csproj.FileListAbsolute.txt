@@ -43,8 +43,6 @@ C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app_MarkupCompile.cache
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app_MarkupCompile.lref
-C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\MainWindow.baml
-C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.g.resources
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.AssemblyInfoInputs.cache
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.AssemblyInfo.cs
@@ -52,3 +50,5 @@ C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.dll
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.pdb
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.genruntimeconfig.cache
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.g.resources

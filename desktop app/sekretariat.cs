@@ -8,10 +8,6 @@ namespace desktop_app
 {
     class School
     {
-        public ObservableCollection<Student> students;
-        public ObservableCollection<Teacher> teachers;
-        public ObservableCollection<Employee> employees;
-        public ObservableCollection<Group> groups;
 
         public class Person
         {
@@ -22,6 +18,8 @@ namespace desktop_app
             public string gender { get; set; }
             public string pesel { get; set; }
             public string birth_date { get; set; }
+
+            public Person() { }
         }
 
         public class Group {
@@ -46,14 +44,6 @@ namespace desktop_app
             List<string> subjects { get; set; }
             List<KeyValuePair<Group, int>> godziny {get; set;}
             DateTime employment_date { get; set; }
-        }
-
-        public School()
-        {
-            students = new ObservableCollection<Student>();
-            teachers = new ObservableCollection<Teacher>();
-            employees = new ObservableCollection<Employee>();
-            groups = new ObservableCollection<Group>();
         }
 
     }

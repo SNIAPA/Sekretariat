@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.ComponentModel;
 
 namespace desktop_app
 {
@@ -24,29 +25,22 @@ namespace desktop_app
     public partial class MainWindow : Window
     {
 
-        School school;
-        public class Tasks : ObservableCollection<Task>
-        {
-            // Creating the Tasks collection in this way enables data binding from XAML.
-        }
+        ObservableCollection<School.Student> students = new ObservableCollection<School.Student>();
 
         public MainWindow()
         {
             InitializeComponent();
 
-            school = new School();
-
-            student_list.ItemsSource = school.students;
-
             importButton.Click += ImportButton_Click;
 
-            student_list.
+            student_list_grid.ItemsSource = students;
 
+            student_list_grid.CanUserReorderColumns = true;
         }
 
         private void ImportButton_Click(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine(school.students.Count);
+           Debug.WriteLine(students.Count);
         }
 
 
