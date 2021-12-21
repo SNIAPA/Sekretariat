@@ -14,7 +14,6 @@ namespace desktop_app
 
         public static SchoolView import()
         {
-            //TODO convert to list
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Json files (*.json)|*.json";
 
@@ -28,7 +27,6 @@ namespace desktop_app
 
         public static bool export(SchoolView school)
         {
-            //TODO convert to list
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "Json files (*.json)|*.json";
 

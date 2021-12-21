@@ -46,6 +46,10 @@ namespace desktop_app
         private void ImportButton_Click(object sender, RoutedEventArgs e)
         {
             schoolView = IEmodule.import();
+
+            student_list_grid.ItemsSource = schoolView.students;
+            teacher_list_grid.ItemsSource = schoolView.teachers;
+            group_list_grid.ItemsSource = schoolView.groups;
         }
     }
 }
