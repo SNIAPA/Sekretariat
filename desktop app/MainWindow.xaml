@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:desktop_app"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="MainWindow" Height="450" Width="800" SizeToContent="Height">
+        Title="MainWindow" Height="450" Width="600" SizeToContent="Height">
     <Grid>
         <TabControl Height="390" VerticalAlignment="Top">
 
@@ -15,12 +15,13 @@
 
                 <DataGrid AutoGenerateColumns="False" 
                           Height="360"
-                          HorizontalAlignment="Center" 
+                          HorizontalAlignment="Left" 
                           Name="student_list_grid" 
                           VerticalAlignment="Top" 
                           CanUserSortColumns="True"
                           CanUserDeleteRows="True"
-                          RowHeight="50">
+                          RowHeight="50" 
+                          Width="537">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Imie" Binding="{Binding Path=first_name}" MinWidth="50" />
                         <DataGridTextColumn Header="Nazwisko" Binding="{Binding Path=last_name}" MinWidth="50" />
@@ -65,7 +66,8 @@
                           Name="teacher_list_grid" 
                           VerticalAlignment="Top" 
                           CanUserSortColumns="True"
-                          CanUserDeleteRows="True"
+                          CanUserDeleteRows="True"  
+                          Width="537"
                           RowHeight="50">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Imie" Binding="{Binding Path=first_name}" MinWidth="50" />
@@ -111,7 +113,8 @@
                           Name="group_list_grid" 
                           VerticalAlignment="Top" 
                           CanUserSortColumns="True"
-                          CanUserDeleteRows="True"
+                          CanUserDeleteRows="True"  
+                          Width="537"
                           RowHeight="50">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Imie" Binding="{Binding Path=first_name}" MinWidth="50" />
@@ -150,9 +153,9 @@
                 </DataGrid>
             </TabItem>
         </TabControl>
-        
-        
-        
+
+
+
         <Grid Height="45" VerticalAlignment="Top" Margin="0,390,0,0" >
             <Button x:Name="importButton" Content="Import" Margin="80,12,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="20px" Width="50px"></Button>
             <Button x:Name="exportButton" Content="Export" Margin="10,12,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="20px" Width="50px"></Button>
