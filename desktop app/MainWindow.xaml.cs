@@ -22,21 +22,29 @@ namespace desktop_app
     public partial class MainWindow : Window
     {
 
-        SchoolView schoolView = new SchoolView();
+        SchoolView schoolView;
 
+        private void updateDataGrid(SchoolView _schoolView)
+        {
+            schoolView = _schoolView;
+
+            student_list_grid.ItemsSource = schoolView.students;
+            teacher_list_grid.ItemsSource = schoolView.teachers;
+            group_list_grid.ItemsSource   = schoolView.groups;
+        }
 
         public MainWindow()
         {
             InitializeComponent();
 
-            student_list_grid.ItemsSource = schoolView.students;
-            teacher_list_grid.ItemsSource = schoolView.teachers;
-            group_list_grid.ItemsSource = schoolView.groups;
+            updateDataGrid(new SchoolView());
+
+            ImportButton.Click += ImportButton_Click;
+            ExportButton.Click += ExportButton_Click;
 
 
-            importButton.Click += ImportButton_Click;
-            exportButton.Click += ExportButton_Click;
         }
+
 
         private void ExportButton_Click(object sender, RoutedEventArgs e)
         {
@@ -45,11 +53,7 @@ namespace desktop_app
 
         private void ImportButton_Click(object sender, RoutedEventArgs e)
         {
-            schoolView = IEmodule.import();
-
-            student_list_grid.ItemsSource = schoolView.students;
-            teacher_list_grid.ItemsSource = schoolView.teachers;
-            group_list_grid.ItemsSource = schoolView.groups;
+            updateDataGrid(IEmodule.import());
         }
     }
 }
