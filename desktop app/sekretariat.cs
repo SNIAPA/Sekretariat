@@ -25,7 +25,7 @@ namespace desktop_app
             public string pesel { get; set; }
             public string birth_date { get; set; }
             public string photo { get; set; }
-
+            public DateTime data_ur { get; set; }
             public Person() { }
         }
 
@@ -41,7 +41,6 @@ namespace desktop_app
 
         public class Employee : Person
         {
-            Bitmap photo { get; set; }
             string job_position { get; set; }
         }
 

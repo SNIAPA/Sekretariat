@@ -28,10 +28,17 @@
                         <DataGridTextColumn Header="Imie matki" Binding="{Binding Path=mothers_name}" MinWidth="50" />
                         <DataGridTextColumn Header="plec" Binding="{Binding Path=gender}" MinWidth="50" />
                         <DataGridTextColumn Header="pesel" Binding="{Binding Path=pesel}" MinWidth="50" />
-                        <DataGridTemplateColumn Header="Zdjecie" MinWidth="100">
+                        <DataGridTemplateColumn Header="Data ur">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <DatePicker SelectedDate="{Binding Path=data_ur}"></DatePicker>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Zdjecie" MaxWidth="50">
                             <DataGridTemplateColumn.CellTemplate >
                                 <DataTemplate>
-                                    <Image Height="50" Source="{Binding Path=photo}"></Image>
+                                    <Image Width="50" Source="{Binding Path=photo}"></Image>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                             <DataGridTemplateColumn.CellEditingTemplate>
