@@ -19,9 +19,6 @@ using System.ComponentModel;
 namespace desktop_app
 {
 
-    /// <summary>
-    /// Interaction log ic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
 
@@ -31,17 +28,11 @@ namespace desktop_app
         {
             InitializeComponent();
 
-            importButton.Click += ImportButton_Click;
-
             student_list_grid.ItemsSource = students;
 
             student_list_grid.CanUserReorderColumns = true;
         }
 
-        private void ImportButton_Click(object sender, RoutedEventArgs e)
-        {
-           Debug.WriteLine(students.Count);
-        }
 
 
 

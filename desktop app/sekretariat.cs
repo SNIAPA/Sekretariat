@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
 using System.Collections.ObjectModel;
+using Microsoft.Win32;
 
 namespace desktop_app
 {
     class School
     {
 
+        List<Student> students;
+        List<Student> teachers;
+        List<Student> groups;
+
         public class Person
         {
+
             public string first_name { get; set; }
             public string last_name { get; set; }
             public string mothers_name { get; set; }
@@ -18,6 +24,7 @@ namespace desktop_app
             public string gender { get; set; }
             public string pesel { get; set; }
             public string birth_date { get; set; }
+            public string photo { get; set; }
 
             public Person() { }
         }

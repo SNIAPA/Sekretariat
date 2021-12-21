@@ -19,18 +19,37 @@
                           Name="student_list_grid" 
                           VerticalAlignment="Top" 
                           CanUserSortColumns="True"
-                          CanUserDeleteRows="True">
-                    <DataGrid.Columns >
+                          CanUserDeleteRows="True"
+                          RowHeight="50">
+                    <DataGrid.Columns>
                         <DataGridTextColumn Header="Imie" Binding="{Binding Path=first_name}" MinWidth="50" />
                         <DataGridTextColumn Header="Nazwisko" Binding="{Binding Path=last_name}" MinWidth="50" />
                         <DataGridTextColumn Header="Imie ojca" Binding="{Binding Path=fathers_name}" MinWidth="50" />
                         <DataGridTextColumn Header="Imie matki" Binding="{Binding Path=mothers_name}" MinWidth="50" />
                         <DataGridTextColumn Header="plec" Binding="{Binding Path=gender}" MinWidth="50" />
                         <DataGridTextColumn Header="pesel" Binding="{Binding Path=pesel}" MinWidth="50" />
+                        <DataGridTemplateColumn Header="Zdjecie" MinWidth="100">
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Image Height="50" Source="{Binding Path=photo}"></Image>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding Path=photo}"></TextBox
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellEditingTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Command="Delete" Content="delete"></Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
-            <Border BorderThickness="1" BorderBrush="Black"/>
         </TabControl>
         
         
