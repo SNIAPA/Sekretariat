@@ -12,20 +12,20 @@ namespace desktop_app
 
         
 
-        public static SchoolView import()
+        public static School import()
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Json files (*.json)|*.json";
 
             if (ofd.ShowDialog() != true)
-                return new SchoolView();
+                return new School();
 
             string rawFile = File.ReadAllText(ofd.FileName);
 
-            return JsonConvert.DeserializeObject<SchoolView>(rawFile);
+            return JsonConvert.DeserializeObject<School>(rawFile);
         }
 
-        public static bool export(SchoolView school)
+        public static bool export(School school)
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "Json files (*.json)|*.json";

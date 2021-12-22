@@ -9,6 +9,9 @@ namespace desktop_app
 {
     class School
     {
+        public List<Student> students;
+        public List<Teacher> teachers;
+        public List<Group> groups;
 
         public class Person
         {
@@ -48,6 +51,22 @@ namespace desktop_app
             DateTime employment_date { get; set; }
         }
 
+        public School(SchoolView schoolView)
+        {
+            students = new List<Student>(schoolView.students);
+            teachers = new List<Teacher>(schoolView.teachers);
+            groups = new List<Group>(schoolView.groups);
+        }
+
+
+        public School()
+        {
+            students = new List<Student>();
+            teachers = new List<Teacher>();
+            groups = new List<Group>();
+        }
+
+
     }
 
     class SchoolView
@@ -61,6 +80,12 @@ namespace desktop_app
             students = new ObservableCollection<School.Student>();
             teachers = new ObservableCollection<School.Teacher>();
             groups = new ObservableCollection<School.Group>();
+        }
+        public SchoolView(School school)
+        {
+            students = new ObservableCollection<School.Student>(school.students);
+            teachers = new ObservableCollection<School.Teacher>(school.teachers);
+            groups = new ObservableCollection<School.Group>(school.groups);
         }
 
     }

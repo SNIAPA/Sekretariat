@@ -48,12 +48,12 @@ namespace desktop_app
 
         private void ExportButton_Click(object sender, RoutedEventArgs e)
         {
-            IEmodule.export(schoolView);
+            IEmodule.export(new School(schoolView));
         }
 
         private void ImportButton_Click(object sender, RoutedEventArgs e)
         {
-            updateDataGrid(IEmodule.import());
+            updateDataGrid(new SchoolView(IEmodule.import()));
         }
     }
 }
