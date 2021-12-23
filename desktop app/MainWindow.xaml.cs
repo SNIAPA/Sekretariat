@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.ComponentModel;
+using System.Linq;
 
 namespace desktop_app
 {
@@ -22,38 +23,55 @@ namespace desktop_app
     public partial class MainWindow : Window
     {
 
-        SchoolView schoolView;
+        School school;
 
-        private void updateDataGrid(SchoolView _schoolView)
+        private void updateDataGrid(School _school= null)
         {
-            schoolView = _schoolView;
+            if(_school != null)
+                school = _school;
 
-            student_list_grid.ItemsSource = schoolView.students;
-            teacher_list_grid.ItemsSource = schoolView.teachers;
-            group_list_grid.ItemsSource   = schoolView.groups;
+            student_list_grid.ItemsSource = school.students;
+            teacher_list_grid.ItemsSource = school.teachers;
+            group_list_grid.ItemsSource   = school.groups;
         }
 
         public MainWindow()
         {
             InitializeComponent();
 
-            updateDataGrid(new SchoolView());
+            updateDataGrid(new School());
 
             ImportButton.Click += ImportButton_Click;
             ExportButton.Click += ExportButton_Click;
 
+            testButton.Click += TestButton_Click;
+            ResetButton.Click += ResetButton_Click;
 
         }
 
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            updateDataGrid();
+        }
+
+        private void TestButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+            List<KeyValuePair<Guid,string>> mappedList = school.students.Select(x => new KeyValuePair<Guid, string>( x.id,x.first_name)).ToList();
+
+            student_list_grid.ItemsSource = new ObservableCollection<School.Student>(school.students.Where(x => FilterModule.Filter(mappedList, 2, "hubert").Contains(x.id)).ToList());
+
+                        
+        }
 
         private void ExportButton_Click(object sender, RoutedEventArgs e)
         {
-            IEmodule.export(new School(schoolView));
+            IEmodule.export(school);
         }
 
         private void ImportButton_Click(object sender, RoutedEventArgs e)
         {
-            updateDataGrid(new SchoolView(IEmodule.import()));
+            updateDataGrid(school);
         }
     }
 }

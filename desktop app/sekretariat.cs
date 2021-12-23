@@ -9,26 +9,27 @@ namespace desktop_app
 {
     class School
     {
-        public List<Student> students;
-        public List<Teacher> teachers;
-        public List<Group> groups;
+        public ObservableCollection<Student> students;
+        public ObservableCollection<Teacher> teachers;
+        public ObservableCollection<Group>   groups;
+
 
         public class Person
         {
-
             public string first_name { get; set; }
             public string last_name { get; set; }
             public string mothers_name { get; set; }
             public string fathers_name { get; set; }
             public string gender { get; set; }
             public string pesel { get; set; }
-            public string birth_date { get; set; }
             public string photo { get; set; } = "https://www.pphfoundation.ca/wp-content/uploads/2018/05/default-avatar.png";
-            public DateTime data_ur { get; set; }
+            public DateTime birth_date { get; set; }
             public Person() { }
         }
 
-        public class Group {
+        public class Group
+        {
+            public Guid id = Guid.NewGuid();
             string name { get; set; }
         }
 
@@ -51,42 +52,14 @@ namespace desktop_app
             DateTime employment_date { get; set; }
         }
 
-        public School(SchoolView schoolView)
-        {
-            students = new List<Student>(schoolView.students);
-            teachers = new List<Teacher>(schoolView.teachers);
-            groups = new List<Group>(schoolView.groups);
-        }
-
 
         public School()
         {
-            students = new List<Student>();
-            teachers = new List<Teacher>();
-            groups = new List<Group>();
+            students = new ObservableCollection<Student>();
+            teachers = new ObservableCollection<Teacher>();
+            groups = new ObservableCollection<Group>();
         }
 
-
-    }
-
-    class SchoolView
-    {
-        public ObservableCollection<School.Student> students;
-        public ObservableCollection<School.Teacher> teachers;
-        public ObservableCollection<School.Group> groups;
-
-        public SchoolView()
-        {
-            students = new ObservableCollection<School.Student>();
-            teachers = new ObservableCollection<School.Teacher>();
-            groups = new ObservableCollection<School.Group>();
-        }
-        public SchoolView(School school)
-        {
-            students = new ObservableCollection<School.Student>(school.students);
-            teachers = new ObservableCollection<School.Teacher>(school.teachers);
-            groups = new ObservableCollection<School.Group>(school.groups);
-        }
 
     }
 }

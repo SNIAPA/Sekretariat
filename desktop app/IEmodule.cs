@@ -9,9 +9,6 @@ namespace desktop_app
 {
     class IEmodule
     {
-
-        
-
         public static School import()
         {
             OpenFileDialog ofd = new OpenFileDialog();
