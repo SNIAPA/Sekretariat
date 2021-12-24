@@ -19,6 +19,8 @@ using System.Linq;
 
 namespace desktop_app
 {
+    // TODO: editable hotkeys
+    // TODO: create separate class for 
 
     public partial class MainWindow : Window
     {
@@ -48,6 +50,7 @@ namespace desktop_app
             ResetButton.Click += ResetButton_Click;
 
             FilterHelpButton.Click += FilterHelpButton_Click;
+            filterBox.KeyDown += filterBox_KeyDown;
 
         }
 
@@ -62,9 +65,29 @@ namespace desktop_app
             school.students.DefaultView.RowFilter = "";
         }
 
+        private void filterBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            Debug.WriteLine("Test");
+            if (e.Key == Key.Enter)
+            {
+                TestButton_Click(this, new RoutedEventArgs());
+            }
+        }
+
         private void TestButton_Click(object sender, RoutedEventArgs e)
         {
-            school.students.DefaultView.RowFilter = filterBox.Text;
+            try
+            {
+                school.students.DefaultView.RowFilter = filterBox.Text;
+                LinearGradientBrush myBrush = new LinearGradientBrush();
+                filterBox.Background = myBrush;
+            }
+            catch(System.Data.EvaluateException err)
+            {
+                LinearGradientBrush myBrush = new LinearGradientBrush();
+                myBrush.GradientStops.Add(new GradientStop(Colors.Red, 1.0));
+                filterBox.Background = myBrush;
+            }
         }
 
         private void ExportButton_Click(object sender, RoutedEventArgs e)
