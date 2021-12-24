@@ -16,9 +16,12 @@ namespace desktop_app
 
         public class Person
         {
+            Guid id = Guid.NewGuid();
             public string first_name { get; set; }
+            public string second_name { get; set; }
             public string last_name { get; set; }
             public string mothers_name { get; set; }
+            public string maiden_name { get; set; }
             public string fathers_name { get; set; }
             public string gender { get; set; }
             public string pesel { get; set; }
@@ -29,7 +32,7 @@ namespace desktop_app
 
         public class Group
         {
-            public Guid id = Guid.NewGuid();
+            Guid id = Guid.NewGuid();
             string name { get; set; }
         }
 

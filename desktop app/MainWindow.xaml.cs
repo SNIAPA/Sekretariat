@@ -57,6 +57,8 @@ namespace desktop_app
         private void TestButton_Click(object sender, RoutedEventArgs e)
         {
             
+            school.students.
+
             List<KeyValuePair<Guid,string>> mappedList = school.students.Select(x => new KeyValuePair<Guid, string>( x.id,x.first_name)).ToList();
 
             student_list_grid.ItemsSource = new ObservableCollection<School.Student>(school.students.Where(x => FilterModule.Filter(mappedList, 2, "hubert").Contains(x.id)).ToList());
