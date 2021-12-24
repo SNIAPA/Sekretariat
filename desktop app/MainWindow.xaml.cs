@@ -30,9 +30,9 @@ namespace desktop_app
             if(_school != null)
                 school = _school;
 
-            student_list_grid.ItemsSource = school.students;
-            teacher_list_grid.ItemsSource = school.teachers;
-            group_list_grid.ItemsSource   = school.groups;
+            student_list_grid.ItemsSource = school.students.DefaultView;
+            teacher_list_grid.ItemsSource = school.teachers.DefaultView;
+            group_list_grid.ItemsSource = school.groups.DefaultView;
         }
 
         public MainWindow()
@@ -47,23 +47,24 @@ namespace desktop_app
             testButton.Click += TestButton_Click;
             ResetButton.Click += ResetButton_Click;
 
+            FilterHelpButton.Click += FilterHelpButton_Click;
+
+        }
+
+        private void FilterHelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            string url = "https://docs.microsoft.com/en-us/dotnet/api/system.data.datacolumn.expression";
+            Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
         }
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
-            updateDataGrid();
+            school.students.DefaultView.RowFilter = "";
         }
 
         private void TestButton_Click(object sender, RoutedEventArgs e)
         {
-            
-            school.students.
-
-            List<KeyValuePair<Guid,string>> mappedList = school.students.Select(x => new KeyValuePair<Guid, string>( x.id,x.first_name)).ToList();
-
-            student_list_grid.ItemsSource = new ObservableCollection<School.Student>(school.students.Where(x => FilterModule.Filter(mappedList, 2, "hubert").Contains(x.id)).ToList());
-
-                        
+            school.students.DefaultView.RowFilter = filterBox.Text;
         }
 
         private void ExportButton_Click(object sender, RoutedEventArgs e)

@@ -19,6 +19,9 @@
                 <MenuItem x:Name="ImportButton" Header="_Import"/>
                 <MenuItem x:Name="ExportButton" Header="_Export"/>
             </MenuItem>
+            <MenuItem Header="Help"  BorderBrush="Gray" BorderThickness="1">
+                <MenuItem x:Name="FilterHelpButton" Header="_Filter"/>
+            </MenuItem>
         </Menu>
         <TabControl Height="390" VerticalAlignment="Top" Margin="0,23">
             <!--                                STUDENTS                                   -->
@@ -165,8 +168,9 @@
                 </DataGrid>
             </TabItem>
         </TabControl>
-        <Button  Content ="test" Margin="24,0,0,5" x:Name="testButton" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="22" RenderTransformOrigin="0.5,0.5" Width="58"></Button>
+        <Button  Content ="Filter" Margin="24,0,0,5" x:Name="testButton" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="22" RenderTransformOrigin="0.5,0.5" Width="58"></Button>
         <Button  Content ="Reset" Margin="100,0,0,5" x:Name="ResetButton" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="22" RenderTransformOrigin="0.5,0.5" Width="58"></Button>
-
+        <TextBox  Margin="200,0,0,5" x:Name="filterBox" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="22" Width="300"></TextBox>
+        
     </Grid>
 </Window>

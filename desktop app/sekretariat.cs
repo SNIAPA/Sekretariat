@@ -4,19 +4,32 @@ using System.Text;
 using System.Drawing;
 using System.Collections.ObjectModel;
 using Microsoft.Win32;
+using System.Data;
+using System.Reflection;
 
 namespace desktop_app
 {
     class School
     {
-        public ObservableCollection<Student> students;
-        public ObservableCollection<Teacher> teachers;
-        public ObservableCollection<Group>   groups;
+        public DataTable students;
+        public DataTable teachers;
+        public DataTable groups;
 
+        private static DataTable CreateEmptyDataTable(Type myType)
+        {
+            DataTable dt = new DataTable();
+
+            foreach (PropertyInfo info in myType.GetProperties())
+            {
+                dt.Columns.Add(new DataColumn(info.Name, info.PropertyType));
+            }
+
+            return dt;
+        }
 
         public class Person
         {
-            Guid id = Guid.NewGuid();
+            public Guid id { get; set; } = Guid.NewGuid();
             public string first_name { get; set; }
             public string second_name { get; set; }
             public string last_name { get; set; }
@@ -32,7 +45,7 @@ namespace desktop_app
 
         public class Group
         {
-            Guid id = Guid.NewGuid();
+            public Guid id { get; set; } = Guid.NewGuid();
             string name { get; set; }
         }
 
@@ -58,9 +71,9 @@ namespace desktop_app
 
         public School()
         {
-            students = new ObservableCollection<Student>();
-            teachers = new ObservableCollection<Teacher>();
-            groups = new ObservableCollection<Group>();
+            students = CreateEmptyDataTable(typeof(Student));
+            teachers = CreateEmptyDataTable(typeof(Teacher));
+            groups   = CreateEmptyDataTable(typeof(Group));
         }
 
 
