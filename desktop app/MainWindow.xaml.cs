@@ -15,7 +15,6 @@ using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.ComponentModel;
-using System.Linq;
 
 namespace desktop_app
 {
@@ -33,8 +32,6 @@ namespace desktop_app
                 school = _school;
 
             student_list_grid.ItemsSource = school.students.DefaultView;
-            teacher_list_grid.ItemsSource = school.teachers.DefaultView;
-            group_list_grid.ItemsSource = school.groups.DefaultView;
         }
 
         public MainWindow()
@@ -45,13 +42,12 @@ namespace desktop_app
 
             ImportButton.Click += ImportButton_Click;
             ExportButton.Click += ExportButton_Click;
-
             testButton.Click += TestButton_Click;
             ResetButton.Click += ResetButton_Click;
-
             FilterHelpButton.Click += FilterHelpButton_Click;
             filterBox.KeyDown += filterBox_KeyDown;
 
+            tableControl;
         }
 
         private void FilterHelpButton_Click(object sender, RoutedEventArgs e)
@@ -82,7 +78,7 @@ namespace desktop_app
                 LinearGradientBrush myBrush = new LinearGradientBrush();
                 filterBox.Background = myBrush;
             }
-            catch(System.Data.EvaluateException err)
+            catch(System.Data.EvaluateException)
             {
                 LinearGradientBrush myBrush = new LinearGradientBrush();
                 myBrush.GradientStops.Add(new GradientStop(Colors.Red, 1.0));

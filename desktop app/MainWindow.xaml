@@ -23,10 +23,9 @@
                 <MenuItem x:Name="FilterHelpButton" Header="_Filter"/>
             </MenuItem>
         </Menu>
-        <TabControl Height="390" VerticalAlignment="Top" Margin="0,23">
+        <TabControl x:Name="tableControl" Height="390" VerticalAlignment="Top" Margin="0,23">
             <!--                                STUDENTS                                   -->
             <TabItem Header="uczniowie">
-
                 <DataGrid AutoGenerateColumns="False" 
                           Height="360"
                           HorizontalAlignment="Left" 
@@ -70,102 +69,7 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
-                    
-                </DataGrid>
-            </TabItem>
-            <!--                                TEACHERS                                     -->
-            <TabItem Header="nauczyciele">
 
-                <DataGrid AutoGenerateColumns="False" 
-                          Height="360"
-                          HorizontalAlignment="Center" 
-                          Name="teacher_list_grid" 
-                          VerticalAlignment="Top" 
-                          CanUserSortColumns="True"
-                          CanUserDeleteRows="True"  
-                          Width="537"
-                          RowHeight="50">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Imie" Binding="{Binding Path=first_name}" MinWidth="50" />
-                        <DataGridTextColumn Header="Nazwisko" Binding="{Binding Path=last_name}" MinWidth="50" />
-                        <DataGridTextColumn Header="Imie ojca" Binding="{Binding Path=fathers_name}" MinWidth="50" />
-                        <DataGridTextColumn Header="Imie matki" Binding="{Binding Path=mothers_name}" MinWidth="50" />
-                        <DataGridTextColumn Header="plec" Binding="{Binding Path=gender}" MinWidth="50" />
-                        <DataGridTextColumn Header="pesel" Binding="{Binding Path=pesel}" MinWidth="50" />
-                        <DataGridTemplateColumn Header="Data ur">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <DatePicker SelectedDate="{Binding Path=birth_date}"></DatePicker>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="Zdjecie" MaxWidth="50">
-                            <DataGridTemplateColumn.CellTemplate >
-                                <DataTemplate>
-                                    <Image Width="50" Source="{Binding Path=photo}"></Image>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                            <DataGridTemplateColumn.CellEditingTemplate>
-                                <DataTemplate>
-                                    <TextBox Text="{Binding Path=photo}"></TextBox>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellEditingTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Command="Delete" Content="delete"></Button>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </TabItem>
-            <!--                                    GROUPS                                -->
-            <TabItem Header="groups">
-                <DataGrid AutoGenerateColumns="False" 
-                          Height="360"
-                          HorizontalAlignment="Center" 
-                          Name="group_list_grid" 
-                          VerticalAlignment="Top" 
-                          CanUserSortColumns="True"
-                          CanUserDeleteRows="True"  
-                          Width="537"
-                          RowHeight="50">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Imie" Binding="{Binding Path=first_name}" MinWidth="50" />
-                        <DataGridTextColumn Header="Nazwisko" Binding="{Binding Path=last_name}" MinWidth="50" />
-                        <DataGridTextColumn Header="Imie ojca" Binding="{Binding Path=fathers_name}" MinWidth="50" />
-                        <DataGridTextColumn Header="Imie matki" Binding="{Binding Path=mothers_name}" MinWidth="50" />
-                        <DataGridTextColumn Header="plec" Binding="{Binding Path=gender}" MinWidth="50" />
-                        <DataGridTextColumn Header="pesel" Binding="{Binding Path=pesel}" MinWidth="50" />
-                        <DataGridTemplateColumn Header="Data ur">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <DatePicker SelectedDate="{Binding Path=data_ur}"></DatePicker>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="Zdjecie" MaxWidth="50">
-                            <DataGridTemplateColumn.CellTemplate >
-                                <DataTemplate>
-                                    <Image Width="50" Source="{Binding Path=photo}"></Image>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                            <DataGridTemplateColumn.CellEditingTemplate>
-                                <DataTemplate>
-                                    <TextBox Text="{Binding Path=photo}"></TextBox>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellEditingTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Command="Delete" Content="delete"></Button>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
         </TabControl>

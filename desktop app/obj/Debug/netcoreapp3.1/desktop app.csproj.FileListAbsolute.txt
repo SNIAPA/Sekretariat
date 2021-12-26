@@ -38,7 +38,6 @@ C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\System.Drawing.Common.dll
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\System.Drawing.Common.dll
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.csproj.AssemblyReference.cache
-C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.csproj.ResolveComReference.cache
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app_MarkupCompile.cache
@@ -53,3 +52,4 @@ C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\MainWindow.baml
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.g.resources
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
