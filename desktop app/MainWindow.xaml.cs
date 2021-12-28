@@ -19,26 +19,22 @@ using System.ComponentModel;
 namespace desktop_app
 {
     // TODO: editable hotkeys
-    // TODO: create separate class for 
+    // TODO: group add and class add for student and teacher
+    // TODO: raports
+    //
 
     public partial class MainWindow : Window
     {
 
         School school;
 
-        private void updateDataGrid(School _school= null)
-        {
-            if(_school != null)
-                school = _school;
-
-            student_list_grid.ItemsSource = school.students.DefaultView;
-        }
 
         public MainWindow()
         {
             InitializeComponent();
 
-            updateDataGrid(new School());
+
+            school = new School();
 
             ImportButton.Click += ImportButton_Click;
             ExportButton.Click += ExportButton_Click;
@@ -47,7 +43,8 @@ namespace desktop_app
             FilterHelpButton.Click += FilterHelpButton_Click;
             filterBox.KeyDown += filterBox_KeyDown;
 
-            tableControl;
+            student_list_grid.ItemsSource = school.students.DefaultView;
+
         }
 
         private void FilterHelpButton_Click(object sender, RoutedEventArgs e)
@@ -93,7 +90,7 @@ namespace desktop_app
 
         private void ImportButton_Click(object sender, RoutedEventArgs e)
         {
-            updateDataGrid(school);
+            student_list_grid.ItemsSource = school.students.DefaultView;
         }
     }
 }

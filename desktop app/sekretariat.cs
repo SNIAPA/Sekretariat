@@ -29,35 +29,35 @@ namespace desktop_app
 
         public class Person
         {
-            public Guid id { get; set; } = Guid.NewGuid();
-            public string first_name { get; set; }
-            public string second_name { get; set; }
-            public string last_name { get; set; }
-            public string mothers_name { get; set; }
-            public string maiden_name { get; set; }
-            public string fathers_name { get; set; }
+            public Guid id { get; set; }
+            public string firstName { get; set; }
+            public string secondName { get; set; }
+            public string lastName { get; set; }
+            public string mothersName { get; set; }
+            public string maidenName { get; set; }
+            public string fathersName { get; set; }
             public string gender { get; set; }
             public string pesel { get; set; }
-            public string photo { get; set; } = "https://www.pphfoundation.ca/wp-content/uploads/2018/05/default-avatar.png";
-            public DateTime birth_date { get; set; }
+            public string photo { get; set; }
+            public DateTime birthDate { get; set; }
             public Person() { }
         }
 
         public class Group
         {
-            public Guid id { get; set; } = Guid.NewGuid();
+            public Guid id { get; set; }
             string name { get; set; }
         }
 
         public class Student : Person
         {
-            Group school_class { get; set;}
+            Group grade { get; set;}
             List<Group> groups { get; set;}
         }
 
         public class Employee : Person
         {
-            string job_position { get; set; }
+            string jobPosition { get; set; }
         }
 
         public class Teacher : Employee
@@ -65,7 +65,7 @@ namespace desktop_app
             string supervising { get; set; }
             List<string> subjects { get; set; }
             List<KeyValuePair<Group, int>> godziny {get; set;}
-            DateTime employment_date { get; set; }
+            DateTime employmentDate { get; set; }
         }
 
 
@@ -74,6 +74,9 @@ namespace desktop_app
             students = CreateEmptyDataTable(typeof(Student));
             teachers = CreateEmptyDataTable(typeof(Teacher));
             groups   = CreateEmptyDataTable(typeof(Group));
+
+            students.Columns["photo"].DefaultValue = "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg";
+            //students.Columns["idbirthDate"].DefaultValue = DateTime.Now;
         }
 
 

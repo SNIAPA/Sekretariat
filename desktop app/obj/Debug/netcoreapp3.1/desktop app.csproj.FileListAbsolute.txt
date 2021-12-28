@@ -52,4 +52,3 @@ C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\MainWindow.baml
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\desktop app.g.resources
 C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
-C:\Users\huber\Source\Repos\SNIAPA\Sekretariat\desktop app\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
