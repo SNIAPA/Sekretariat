@@ -21,7 +21,7 @@ namespace desktop_app
     // TODO: editable hotkeys
     // TODO: group add and class add for student and teacher
     // TODO: raports
-    //
+    // TODO: groups and teachers
 
     public partial class MainWindow : Window
     {
@@ -44,6 +44,8 @@ namespace desktop_app
             filterBox.KeyDown += filterBox_KeyDown;
 
             student_list_grid.ItemsSource = school.students.DefaultView;
+            group_list_grid.ItemsSource = school.groups.DefaultView;
+            teacher_list_grid.ItemsSource = school.teachers.DefaultView;
 
         }
 
@@ -56,11 +58,12 @@ namespace desktop_app
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
             school.students.DefaultView.RowFilter = "";
+            school.groups.DefaultView.RowFilter = "";
+            school.teachers.DefaultView.RowFilter = "";
         }
 
         private void filterBox_KeyDown(object sender, KeyEventArgs e)
         {
-            Debug.WriteLine("Test");
             if (e.Key == Key.Enter)
             {
                 TestButton_Click(this, new RoutedEventArgs());
@@ -72,6 +75,8 @@ namespace desktop_app
             try
             {
                 school.students.DefaultView.RowFilter = filterBox.Text;
+                school.groups.DefaultView.RowFilter = filterBox.Text;
+                school.teachers.DefaultView.RowFilter = filterBox.Text;
                 LinearGradientBrush myBrush = new LinearGradientBrush();
                 filterBox.Background = myBrush;
             }
@@ -90,7 +95,10 @@ namespace desktop_app
 
         private void ImportButton_Click(object sender, RoutedEventArgs e)
         {
-            student_list_grid.ItemsSource = school.students.DefaultView;
+            School importrted = IEmodule.import();
+            student_list_grid.ItemsSource = importrted.students.DefaultView;
+            group_list_grid.ItemsSource = importrted.groups.DefaultView;
+            teacher_list_grid.ItemsSource = importrted.teachers.DefaultView;
         }
     }
 }

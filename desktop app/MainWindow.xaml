@@ -11,12 +11,27 @@
         MinHeight="425"
         Width="885" 
         >
-    
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <RoutedUICommand x:Key="CtrS" Text="Another Text" />
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.InputBindings>
+        <KeyBinding Key="s" Modifiers="Ctrl" Command="{StaticResource CtrS}" />
+    </Window.InputBindings>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource CtrS}" Executed="ExportButton_Click" />
+    </Window.CommandBindings>
+
     <Grid Margin="0,0,0,0" ShowGridLines="False"
         >
         <Grid.Resources>
             <DataTemplate  x:Key="DateTemplate">
                 <DatePicker SelectedDate="{Binding Path=birthDate}"/>
+            </DataTemplate>
+            <DataTemplate  x:Key="EmploymentDateTemplate">
+                <DatePicker SelectedDate="{Binding Path=employmentDate}"/>
             </DataTemplate>
             <DataTemplate x:Key="PhotoTemplate">
                 <Image Width="50" Source="{Binding Path=photo}"></Image>
@@ -42,11 +57,14 @@
             <MenuItem Header="Help"  BorderBrush="Gray" BorderThickness="1">
                 <MenuItem x:Name="FilterHelpButton" Header="_Filter"/>
             </MenuItem>
+            <MenuItem Header="Hotkeys"  BorderBrush="Gray" BorderThickness="1">
+                <MenuItem x:Name="ExportHotkey" Header="_Export"/>
+            </MenuItem>
             
         </Menu>
         <TabControl Grid.Row="1" x:Name="tableControl" Height="auto" MinHeight="300" VerticalAlignment="Top" HorizontalAlignment="Left">
             <!--                                STUDENTS                                   -->
-            <TabItem Header="uczniowie">
+            <TabItem Header="students">
                 
                 <DataGrid AutoGenerateColumns="False" 
                           Height="auto"
@@ -60,6 +78,7 @@
                           RowHeight="50" >
                     <DataGrid.Columns>
 
+                        <DataGridTextColumn Header="id" IsReadOnly="True" Binding="{Binding Path=id}"  MinWidth="50" />
                         <DataGridTextColumn Header="firstName" Binding="{Binding Path=firstName}" MinWidth="50" />
                         <DataGridTextColumn Header="secondName" Binding="{Binding Path=secondName}" MinWidth="50" />
                         <DataGridTextColumn Header="lastName" Binding="{Binding Path=lastName}" MinWidth="50" />
@@ -71,6 +90,65 @@
                         <DataGridTextColumn Header="grade" Binding="{Binding Path=grade}" MinWidth="50" />
                         <DataGridTextColumn Header="groups"  MinWidth="50" />
                         <DataGridTemplateColumn Header="birthDate" CellTemplate="{StaticResource DateTemplate}" CellEditingTemplate="{StaticResource DateTemplate}"/>
+                        <DataGridTemplateColumn Header="photo" CellTemplate="{StaticResource PhotoTemplate}" CellEditingTemplate="{StaticResource PhotoEditTemplate}"/>
+                        <DataGridTemplateColumn Header="Delete" CellTemplate="{StaticResource DeleteButtonTemplate}"/>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+            </TabItem>
+            <!--                                GROUPS                                   -->
+            <TabItem Header="groups">
+
+                <DataGrid AutoGenerateColumns="False" 
+                          Height="auto"
+                          MinHeight="300"
+                          MaxHeight="700"
+                          HorizontalAlignment="Left" 
+                          Name="group_list_grid" 
+                          VerticalAlignment="Top" 
+                          CanUserSortColumns="True"
+                          CanUserDeleteRows="True"
+                          RowHeight="50" >
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="id" IsReadOnly="True" Binding="{Binding Path=id}"  MinWidth="50" />
+                        <DataGridTextColumn Header="name" Binding="{Binding Path=name}" MinWidth="50" />
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+            </TabItem>
+            <!--                                TEACHERS                                   -->
+            <TabItem Header="teachers">
+
+                <DataGrid AutoGenerateColumns="False" 
+                          Height="auto"
+                          MinHeight="300"
+                          MaxHeight="700"
+                          HorizontalAlignment="Left" 
+                          Name="teacher_list_grid" 
+                          VerticalAlignment="Top" 
+                          CanUserSortColumns="True"
+                          CanUserDeleteRows="True"
+                          RowHeight="50" >
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="id" IsReadOnly="True" Binding="{Binding Path=id}"  MinWidth="50" />
+                        <DataGridTextColumn Header="firstName" Binding="{Binding Path=firstName}" MinWidth="50" />
+                        <DataGridTextColumn Header="secondName" Binding="{Binding Path=secondName}" MinWidth="50" />
+                        <DataGridTextColumn Header="lastName" Binding="{Binding Path=lastName}" MinWidth="50" />
+                        <DataGridTextColumn Header="maidensName" Binding="{Binding Path=maidenName}" MinWidth="50" />
+                        <DataGridTextColumn Header="mothersName" Binding="{Binding Path=mothersName}" MinWidth="50" />
+                        <DataGridTextColumn Header="fathersName" Binding="{Binding Path=fathersName}" MinWidth="50" />
+                        <DataGridTextColumn Header="gender" Binding="{Binding Path=gender}" MinWidth="50" />
+                        <DataGridTextColumn Header="pesel" Binding="{Binding Path=pesel}" MinWidth="50" />
+                        <DataGridTextColumn Header="supervisedClass" Binding="{Binding Path=supervisedClass}" MinWidth="50" />
+                        <DataGridTextColumn Header="groups"  MinWidth="50" />
+                        <!-- TODO: subjects-->
+                        <!-- TODO: workHours-->
+                        <DataGridTemplateColumn Header="birthDate" CellTemplate="{StaticResource EmploymentDateTemplate}" CellEditingTemplate="{StaticResource EmploymentDateTemplate}"/>
+                        <DataGridTemplateColumn Header="employmentDate" CellTemplate="{StaticResource DateTemplate}" CellEditingTemplate="{StaticResource DateTemplate}"/>
                         <DataGridTemplateColumn Header="photo" CellTemplate="{StaticResource PhotoTemplate}" CellEditingTemplate="{StaticResource PhotoEditTemplate}"/>
                         <DataGridTemplateColumn Header="Delete" CellTemplate="{StaticResource DeleteButtonTemplate}"/>
 

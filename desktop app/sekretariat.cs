@@ -47,6 +47,7 @@ namespace desktop_app
         {
             public Guid id { get; set; }
             string name { get; set; }
+            public Group() { }
         }
 
         public class Student : Person
@@ -62,21 +63,27 @@ namespace desktop_app
 
         public class Teacher : Employee
         {
-            string supervising { get; set; }
+            Group supervisedClass { get; set; }
             List<string> subjects { get; set; }
-            List<KeyValuePair<Group, int>> godziny {get; set;}
+            List<KeyValuePair<Group, int>> workHours {get; set;}
             DateTime employmentDate { get; set; }
+            public Teacher() { }
         }
 
 
         public School()
         {
             students = CreateEmptyDataTable(typeof(Student));
-            teachers = CreateEmptyDataTable(typeof(Teacher));
             groups   = CreateEmptyDataTable(typeof(Group));
+            teachers = CreateEmptyDataTable(typeof(Teacher));
 
             students.Columns["photo"].DefaultValue = "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg";
-            //students.Columns["idbirthDate"].DefaultValue = DateTime.Now;
+            students.Columns["birthDate"].DefaultValue = DateTime.Now;
+            students.Columns["id"].DefaultValue = Guid.NewGuid();
+            groups.Columns["id"].DefaultValue = Guid.NewGuid();
+            teachers.Columns["photo"].DefaultValue = "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg";
+            teachers.Columns["birthDate"].DefaultValue = DateTime.Now;
+            teachers.Columns["employmentDate"].DefaultValue = DateTime.Now;
         }
 
 
