@@ -23,15 +23,17 @@
         <DockPanel DockPanel.Dock="Top" Grid.Row="0">
             <Menu  Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Stretch"  Background="LightGray" BorderBrush="Gray" BorderThickness="1" >
                 <MenuItem Header="File"  BorderBrush="Gray" BorderThickness="1">
-                    <MenuItem  Header="_Export" Command="{x:Static local:MainWindow.ExportCmd}"/>
-                    <MenuItem  Header="_Import" Command="{x:Static local:MainWindow.ImportCmd}"/>
+                    <MenuItem  Header="_Export" DataContext="{x:Static local:MainWindow.ExportHotkey}" Command="{Binding command}" InputGestureText="{Binding}"/>
+                    <MenuItem  Header="_Import" DataContext="{x:Static local:MainWindow.ImportHotkey}" Command="{Binding command}" InputGestureText="{Binding}"/>
                 </MenuItem>
                 <MenuItem Header="Help"  BorderBrush="Gray" BorderThickness="1">
                     <MenuItem x:Name="FilterHelpButton" Header="_Filter"/>
                 </MenuItem>
-                <MenuItem Header="Hotkeys"  BorderBrush="Gray" BorderThickness="1" DataContext="local:MainWindow">
-                    <MenuItem Command="Cut" />
-                    <MenuItem Header="{Binding Path=asd}" InputGestureText="asd" />
+                <MenuItem Header="Hotkeys"  BorderBrush="Gray" BorderThickness="1" >
+                    <MenuItem DataContext="{x:Static local:MainWindow.ExportHotkey}"  Header="Export" InputGestureText="{Binding Path=InputGestureText, Mode=TwoWay}" Click="test"/>
+                    <MenuItem DataContext="{x:Static local:MainWindow.ImportHotkey}"  Header="Import" InputGestureText="{Binding Path=InputGestureText}"/>
+                    <MenuItem DataContext="{x:Static local:MainWindow.FilterResetHotkey}"  Header="FilterReset" InputGestureText="{Binding Path=InputGestureText}"/>
+                    <MenuItem DataContext="{x:Static local:MainWindow.FilterApplyHotkey}"  Header="FilterApply" InputGestureText="{Binding Path=InputGestureText}"/>
 
                 </MenuItem>
             </Menu>
@@ -153,9 +155,9 @@
                 </TabItem>
             </TabControl>
             <Grid Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Margin="0,5">
-                
-                <Button  Content ="Filter" Margin="24,0,0,0" Command="{x:Static local:MainWindow.FilterApplyCmd}"  VerticalAlignment="Top" HorizontalAlignment="Left" Height="25"  Width="50"></Button>
-                <Button  Content ="Reset"  Margin="427,0,0,0" Command="{x:Static local:MainWindow.FilterResetCmd}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25"  Width="50"></Button>
+
+                <Button  Content ="Filter" Margin="24,0,0,0" DataContext="{x:Static local:MainWindow.FilterApplyHotkey}" Command="{Binding command}"  VerticalAlignment="Top" HorizontalAlignment="Left" Height="25"  Width="50"></Button>
+                <Button  Content ="Reset"  Margin="427,0,0,0" DataContext="{x:Static local:MainWindow.FilterResetHotkey}" Command="{Binding command}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25"  Width="50"></Button>
                 <TextBox  Margin="100,0,0,0" x:Name="filterBox" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25" Width="300"></TextBox>
             </Grid>
 
