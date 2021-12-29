@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using Microsoft.Win32;
 using System.Data;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace desktop_app
 {
@@ -15,7 +16,7 @@ namespace desktop_app
         public DataTable teachers;
         public DataTable groups;
 
-        private static DataTable CreateEmptyDataTable(Type myType)
+        private DataTable CreateEmptyDataTable(Type myType)
         {
             DataTable dt = new DataTable();
 
@@ -46,27 +47,27 @@ namespace desktop_app
         public class Group
         {
             public Guid id { get; set; }
-            string name { get; set; }
+            public string name { get; set; }
             public Group() { }
         }
 
         public class Student : Person
         {
-            Group grade { get; set;}
-            List<Group> groups { get; set;}
+            public Group grade { get; set;}
+            public List<Group> groups { get; set;}
         }
 
         public class Employee : Person
         {
-            string jobPosition { get; set; }
+            public string jobPosition { get; set; }
         }
 
         public class Teacher : Employee
         {
-            Group supervisedClass { get; set; }
-            List<string> subjects { get; set; }
-            List<KeyValuePair<Group, int>> workHours {get; set;}
-            DateTime employmentDate { get; set; }
+            public Group supervisedClass { get; set; }
+            public List<string> subjects { get; set; }
+            public List<KeyValuePair<Group, int>> workHours {get; set;}
+            public DateTime employmentDate { get; set; }
             public Teacher() { }
         }
 

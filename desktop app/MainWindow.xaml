@@ -147,8 +147,8 @@
                         <DataGridTextColumn Header="groups"  MinWidth="50" />
                         <!-- TODO: subjects-->
                         <!-- TODO: workHours-->
-                        <DataGridTemplateColumn Header="birthDate" CellTemplate="{StaticResource EmploymentDateTemplate}" CellEditingTemplate="{StaticResource EmploymentDateTemplate}"/>
-                        <DataGridTemplateColumn Header="employmentDate" CellTemplate="{StaticResource DateTemplate}" CellEditingTemplate="{StaticResource DateTemplate}"/>
+                        <DataGridTemplateColumn Header="birthDate" CellTemplate="{StaticResource DateTemplate}" CellEditingTemplate="{StaticResource DateTemplate}"/>
+                        <DataGridTemplateColumn Header="employmentDate" CellTemplate="{StaticResource EmploymentDateTemplate}" CellEditingTemplate="{StaticResource EmploymentDateTemplate}"/>
                         <DataGridTemplateColumn Header="photo" CellTemplate="{StaticResource PhotoTemplate}" CellEditingTemplate="{StaticResource PhotoEditTemplate}"/>
                         <DataGridTemplateColumn Header="Delete" CellTemplate="{StaticResource DeleteButtonTemplate}"/>
 
