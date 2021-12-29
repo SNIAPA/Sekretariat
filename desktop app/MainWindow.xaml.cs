@@ -21,25 +21,17 @@ namespace desktop_app
     // TODO: editable hotkeys
     // TODO: group add and class add for student and teacher
     // TODO: raports
-    // TODO: groups and teachers
 
     public partial class MainWindow : Window
     {
 
-        School school;
-
+        School school = new School();
 
         public MainWindow()
         {
             InitializeComponent();
 
 
-            school = new School();
-
-            ImportButton.Click += ImportButton_Click;
-            ExportButton.Click += ExportButton_Click;
-            testButton.Click += TestButton_Click;
-            ResetButton.Click += ResetButton_Click;
             FilterHelpButton.Click += FilterHelpButton_Click;
             filterBox.KeyDown += filterBox_KeyDown;
 
@@ -55,7 +47,7 @@ namespace desktop_app
             Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
         }
 
-        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        private void FilterReset(object sender, RoutedEventArgs e)
         {
             school.students.DefaultView.RowFilter = "";
             school.groups.DefaultView.RowFilter = "";
@@ -66,39 +58,52 @@ namespace desktop_app
         {
             if (e.Key == Key.Enter)
             {
-                TestButton_Click(this, new RoutedEventArgs());
+                FilterApply(this, new RoutedEventArgs());
             }
         }
 
-        private void TestButton_Click(object sender, RoutedEventArgs e)
+        private void FilterApply(object sender, RoutedEventArgs e)
         {
             try
             {
-                school.students.DefaultView.RowFilter = filterBox.Text;
-                school.groups.DefaultView.RowFilter = filterBox.Text;
-                school.teachers.DefaultView.RowFilter = filterBox.Text;
+                switch (tableControl.SelectedIndex)
+                {
+                    case 0:
+                        school.students.DefaultView.RowFilter = filterBox.Text;
+                        break;
+                    case 1:
+                        school.groups.DefaultView.RowFilter = filterBox.Text;
+                        break;
+                    case 2:
+                        school.teachers.DefaultView.RowFilter = filterBox.Text;
+                        break;
+                }
                 LinearGradientBrush myBrush = new LinearGradientBrush();
                 filterBox.Background = myBrush;
             }
-            catch(System.Data.EvaluateException)
+            catch(System.Data.InvalidExpressionException)
             {
                 LinearGradientBrush myBrush = new LinearGradientBrush();
-                myBrush.GradientStops.Add(new GradientStop(Colors.Red, 1.0));
+                myBrush.GradientStops.Add(new GradientStop(Color.FromArgb(200, 190,0,0) , 1));
                 filterBox.Background = myBrush;
             }
         }
 
-        private void ExportButton_Click(object sender, RoutedEventArgs e)
+        private void Export(object sender, RoutedEventArgs e)
         {
             IEmodule.export(school);
         }
 
-        private void ImportButton_Click(object sender, RoutedEventArgs e)
+        private void Import(object sender, RoutedEventArgs e)
         {
             School importrted = IEmodule.import();
             student_list_grid.ItemsSource = importrted.students.DefaultView;
             group_list_grid.ItemsSource = importrted.groups.DefaultView;
             teacher_list_grid.ItemsSource = importrted.teachers.DefaultView;
+        }
+        private void EditHotkey(object sender,RoutedEventArgs e)
+        {
+            Debug.WriteLine("test");
         }
     }
 }

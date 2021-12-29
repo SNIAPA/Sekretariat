@@ -13,155 +13,167 @@
         >
 
     <Window.Resources>
-        <ResourceDictionary>
-            <RoutedUICommand x:Key="CtrS" Text="Another Text" />
-        </ResourceDictionary>
+        <RoutedCommand x:Key="ExportCmd" />
+        <RoutedCommand x:Key="ImportCmd" />
+        <RoutedCommand x:Key="FilterResetCmd"/>
+        <RoutedCommand x:Key="FilterApplyCmd"/>
     </Window.Resources>
     <Window.InputBindings>
-        <KeyBinding Key="s" Modifiers="Ctrl" Command="{StaticResource CtrS}" />
+        <KeyBinding Key="s" Modifiers="Ctrl" Command="{StaticResource ExportCmd}" />
+        <KeyBinding Key="i" Modifiers="Ctrl" Command="{StaticResource ImportCmd}" />
+        <KeyBinding Key="r" Modifiers="Ctrl" Command="{StaticResource FilterResetCmd}" />
+        <KeyBinding Key="f" Modifiers="Ctrl" Command="{StaticResource FilterApplyCmd}" />
     </Window.InputBindings>
     <Window.CommandBindings>
-        <CommandBinding Command="{StaticResource CtrS}" Executed="ExportButton_Click" />
+        <CommandBinding Command="{StaticResource ExportCmd}" Executed="Export" />
+        <CommandBinding Command="{StaticResource ImportCmd}" Executed="Import" />
+        <CommandBinding Command="{StaticResource FilterResetCmd}" Executed="FilterReset" />
+        <CommandBinding Command="{StaticResource FilterApplyCmd}" Executed="FilterApply" />
     </Window.CommandBindings>
 
-    <Grid Margin="0,0,0,0" ShowGridLines="False"
-        >
-        <Grid.Resources>
-            <DataTemplate  x:Key="DateTemplate">
-                <DatePicker SelectedDate="{Binding Path=birthDate}"/>
-            </DataTemplate>
-            <DataTemplate  x:Key="EmploymentDateTemplate">
-                <DatePicker SelectedDate="{Binding Path=employmentDate}"/>
-            </DataTemplate>
-            <DataTemplate x:Key="PhotoTemplate">
-                <Image Width="50" Source="{Binding Path=photo}"></Image>
-            </DataTemplate>
-            <DataTemplate x:Key="PhotoEditTemplate">
-                <TextBox Width="50" Text="{Binding Path=photo}"></TextBox>
-            </DataTemplate>
-            <DataTemplate x:Key="DeleteButtonTemplate">
-                <Button Command="Delete" Content="delete"></Button>
-            </DataTemplate>
-        </Grid.Resources>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="25"></RowDefinition>
-            <RowDefinition Height=" auto"></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
+    <Grid ShowGridLines="False">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
         </Grid.RowDefinitions>
+        <DockPanel DockPanel.Dock="Top" Grid.Row="0">
+            <Menu  Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Stretch"  Background="LightGray" BorderBrush="Gray" BorderThickness="1" >
+                <MenuItem Header="File"  BorderBrush="Gray" BorderThickness="1">
+                    <MenuItem  Header="_Export" Command="{StaticResource ExportCmd}"/>
+                    <MenuItem  Header="_Import" Command="{StaticResource ImportCmd}"/>
+                </MenuItem>
+                <MenuItem Header="Help"  BorderBrush="Gray" BorderThickness="1">
+                    <MenuItem x:Name="FilterHelpButton" Header="_Filter"/>
+                </MenuItem>
+                <MenuItem Header="Hotkeys"  BorderBrush="Gray" BorderThickness="1">
+                    <MenuItem Command="Cut" />
+                    <MenuItem Command="ExportCmd" />
 
-        <Menu  Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Stretch"  Background="LightGray" BorderBrush="Gray" BorderThickness="1" >
-            <MenuItem Header="File"  BorderBrush="Gray" BorderThickness="1">
-                <MenuItem x:Name="ImportButton" Header="_Import"/>
-                <MenuItem x:Name="ExportButton" Header="_Export"/>
-            </MenuItem>
-            <MenuItem Header="Help"  BorderBrush="Gray" BorderThickness="1">
-                <MenuItem x:Name="FilterHelpButton" Header="_Filter"/>
-            </MenuItem>
-            <MenuItem Header="Hotkeys"  BorderBrush="Gray" BorderThickness="1">
-                <MenuItem x:Name="ExportHotkey" Header="_Export"/>
-            </MenuItem>
-            
-        </Menu>
-        <TabControl Grid.Row="1" x:Name="tableControl" Height="auto" MinHeight="300" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <!--                                STUDENTS                                   -->
-            <TabItem Header="students">
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <Grid Margin="0,2,0,0" ShowGridLines="False" Grid.Row="1"
+            >
+            <Grid.Resources>
+                <DataTemplate  x:Key="DateTemplate">
+                    <DatePicker SelectedDate="{Binding Path=birthDate}"/>
+                </DataTemplate>
+                <DataTemplate  x:Key="EmploymentDateTemplate">
+                    <DatePicker SelectedDate="{Binding Path=employmentDate}"/>
+                </DataTemplate>
+                <DataTemplate x:Key="PhotoTemplate">
+                    <Image Width="50" Source="{Binding Path=photo}"></Image>
+                </DataTemplate>
+                <DataTemplate x:Key="PhotoEditTemplate">
+                    <TextBox Width="50" Text="{Binding Path=photo}"></TextBox>
+                </DataTemplate>
+                <DataTemplate x:Key="DeleteButtonTemplate">
+                    <Button Command="Delete" Content="delete"></Button>
+                </DataTemplate>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+       
+            <TabControl Grid.Row="0" x:Name="tableControl" Height="auto" MinHeight="300" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <!--                                STUDENTS                                   -->
+                <TabItem Header="students">
                 
-                <DataGrid AutoGenerateColumns="False" 
-                          Height="auto"
-                          MinHeight="300"
-                          MaxHeight="700"
-                          HorizontalAlignment="Left" 
-                          Name="student_list_grid" 
-                          VerticalAlignment="Top" 
-                          CanUserSortColumns="True"
-                          CanUserDeleteRows="True"
-                          RowHeight="50" >
-                    <DataGrid.Columns>
+                    <DataGrid AutoGenerateColumns="False" 
+                              Height="auto"
+                              MinHeight="300"
+                              MaxHeight="700"
+                              HorizontalAlignment="Left" 
+                              Name="student_list_grid" 
+                              VerticalAlignment="Top" 
+                              RowHeight="50" >
+                        <DataGrid.Columns>
 
-                        <DataGridTextColumn Header="id" IsReadOnly="True" Binding="{Binding Path=id}"  MinWidth="50" />
-                        <DataGridTextColumn Header="firstName" Binding="{Binding Path=firstName}" MinWidth="50" />
-                        <DataGridTextColumn Header="secondName" Binding="{Binding Path=secondName}" MinWidth="50" />
-                        <DataGridTextColumn Header="lastName" Binding="{Binding Path=lastName}" MinWidth="50" />
-                        <DataGridTextColumn Header="maidensName" Binding="{Binding Path=maidenName}" MinWidth="50" />
-                        <DataGridTextColumn Header="mothersName" Binding="{Binding Path=mothersName}" MinWidth="50" />
-                        <DataGridTextColumn Header="fathersName" Binding="{Binding Path=fathersName}" MinWidth="50" />
-                        <DataGridTextColumn Header="gender" Binding="{Binding Path=gender}" MinWidth="50" />
-                        <DataGridTextColumn Header="pesel" Binding="{Binding Path=pesel}" MinWidth="50" />
-                        <DataGridTextColumn Header="grade" Binding="{Binding Path=grade}" MinWidth="50" />
-                        <DataGridTextColumn Header="groups"  MinWidth="50" />
-                        <DataGridTemplateColumn Header="birthDate" CellTemplate="{StaticResource DateTemplate}" CellEditingTemplate="{StaticResource DateTemplate}"/>
-                        <DataGridTemplateColumn Header="photo" CellTemplate="{StaticResource PhotoTemplate}" CellEditingTemplate="{StaticResource PhotoEditTemplate}"/>
-                        <DataGridTemplateColumn Header="Delete" CellTemplate="{StaticResource DeleteButtonTemplate}"/>
+                            <DataGridTextColumn Header="id" IsReadOnly="True" Binding="{Binding Path=id}" CanUserResize="False" Width="230" />
+                            <DataGridTextColumn Header="firstName" Binding="{Binding Path=firstName}" MinWidth="50" />
+                            <DataGridTextColumn Header="secondName" Binding="{Binding Path=secondName}" MinWidth="50" />
+                            <DataGridTextColumn Header="lastName" Binding="{Binding Path=lastName}" MinWidth="50" />
+                            <DataGridTextColumn Header="maidensName" Binding="{Binding Path=maidenName}" MinWidth="50" />
+                            <DataGridTextColumn Header="mothersName" Binding="{Binding Path=mothersName}" MinWidth="50" />
+                            <DataGridTextColumn Header="fathersName" Binding="{Binding Path=fathersName}" MinWidth="50" />
+                            <DataGridTextColumn Header="gender" Binding="{Binding Path=gender}" MinWidth="50" />
+                            <DataGridTextColumn Header="pesel" Binding="{Binding Path=pesel}" MinWidth="50" />
+                            <DataGridTextColumn Header="grade" Binding="{Binding Path=grade}" MinWidth="50" />
+                            <DataGridTextColumn Header="groups"  MinWidth="50" />
+                            <DataGridTemplateColumn Header="birthDate" CellTemplate="{StaticResource DateTemplate}" CellEditingTemplate="{StaticResource DateTemplate}"/>
+                            <DataGridTemplateColumn Header="photo" CellTemplate="{StaticResource PhotoTemplate}" CellEditingTemplate="{StaticResource PhotoEditTemplate}"/>
+                            <DataGridTemplateColumn Header="Delete" CellTemplate="{StaticResource DeleteButtonTemplate}"/>
 
-                    </DataGrid.Columns>
+                        </DataGrid.Columns>
 
-                </DataGrid>
-            </TabItem>
-            <!--                                GROUPS                                   -->
-            <TabItem Header="groups">
+                    </DataGrid>
+                </TabItem>
+                <!--                                GROUPS                                   -->
+                <TabItem Header="groups">
 
-                <DataGrid AutoGenerateColumns="False" 
-                          Height="auto"
-                          MinHeight="300"
-                          MaxHeight="700"
-                          HorizontalAlignment="Left" 
-                          Name="group_list_grid" 
-                          VerticalAlignment="Top" 
-                          CanUserSortColumns="True"
-                          CanUserDeleteRows="True"
-                          RowHeight="50" >
-                    <DataGrid.Columns>
+                    <DataGrid AutoGenerateColumns="False" 
+                              Height="auto"
+                              MinHeight="300"
+                              MaxHeight="700"
+                              HorizontalAlignment="Left" 
+                              Name="group_list_grid" 
+                              VerticalAlignment="Top" 
+                              RowHeight="50" >
+                        <DataGrid.Columns>
 
-                        <DataGridTextColumn Header="id" IsReadOnly="True" Binding="{Binding Path=id}"  MinWidth="50" />
-                        <DataGridTextColumn Header="name" Binding="{Binding Path=name}" MinWidth="50" />
+                            <DataGridTextColumn Header="id" IsReadOnly="True" Binding="{Binding Path=id}" CanUserResize="False"  Width="230"/>
+                            <DataGridTextColumn Header="name"  Binding="{Binding Path=name}" MinWidth="50" />
 
-                    </DataGrid.Columns>
+                        </DataGrid.Columns>
 
-                </DataGrid>
-            </TabItem>
-            <!--                                TEACHERS                                   -->
-            <TabItem Header="teachers">
+                    </DataGrid>
+                </TabItem>
+                <!--                                TEACHERS                                   -->
+                <TabItem Header="teachers">
 
-                <DataGrid AutoGenerateColumns="False" 
-                          Height="auto"
-                          MinHeight="300"
-                          MaxHeight="700"
-                          HorizontalAlignment="Left" 
-                          Name="teacher_list_grid" 
-                          VerticalAlignment="Top" 
-                          CanUserSortColumns="True"
-                          CanUserDeleteRows="True"
-                          RowHeight="50" >
-                    <DataGrid.Columns>
+                    <DataGrid AutoGenerateColumns="False" 
+                              Height="auto"
+                              MinHeight="300"
+                              MaxHeight="700"
+                              HorizontalAlignment="Left" 
+                              Name="teacher_list_grid" 
+                              VerticalAlignment="Top" 
+                              CanUserSortColumns="True"
+                              CanUserDeleteRows="True"
+                              RowHeight="50" >
+                        <DataGrid.Columns>
 
-                        <DataGridTextColumn Header="id" IsReadOnly="True" Binding="{Binding Path=id}"  MinWidth="50" />
-                        <DataGridTextColumn Header="firstName" Binding="{Binding Path=firstName}" MinWidth="50" />
-                        <DataGridTextColumn Header="secondName" Binding="{Binding Path=secondName}" MinWidth="50" />
-                        <DataGridTextColumn Header="lastName" Binding="{Binding Path=lastName}" MinWidth="50" />
-                        <DataGridTextColumn Header="maidensName" Binding="{Binding Path=maidenName}" MinWidth="50" />
-                        <DataGridTextColumn Header="mothersName" Binding="{Binding Path=mothersName}" MinWidth="50" />
-                        <DataGridTextColumn Header="fathersName" Binding="{Binding Path=fathersName}" MinWidth="50" />
-                        <DataGridTextColumn Header="gender" Binding="{Binding Path=gender}" MinWidth="50" />
-                        <DataGridTextColumn Header="pesel" Binding="{Binding Path=pesel}" MinWidth="50" />
-                        <DataGridTextColumn Header="supervisedClass" Binding="{Binding Path=supervisedClass}" MinWidth="50" />
-                        <DataGridTextColumn Header="groups"  MinWidth="50" />
-                        <!-- TODO: subjects-->
-                        <!-- TODO: workHours-->
-                        <DataGridTemplateColumn Header="birthDate" CellTemplate="{StaticResource DateTemplate}" CellEditingTemplate="{StaticResource DateTemplate}"/>
-                        <DataGridTemplateColumn Header="employmentDate" CellTemplate="{StaticResource EmploymentDateTemplate}" CellEditingTemplate="{StaticResource EmploymentDateTemplate}"/>
-                        <DataGridTemplateColumn Header="photo" CellTemplate="{StaticResource PhotoTemplate}" CellEditingTemplate="{StaticResource PhotoEditTemplate}"/>
-                        <DataGridTemplateColumn Header="Delete" CellTemplate="{StaticResource DeleteButtonTemplate}"/>
+                            <DataGridTextColumn Header="id" IsReadOnly="True" Binding="{Binding Path=id}" CanUserResize="False" Width="230" />
+                            <DataGridTextColumn Header="firstName" Binding="{Binding Path=firstName}" MinWidth="50" />
+                            <DataGridTextColumn Header="secondName" Binding="{Binding Path=secondName}" MinWidth="50" />
+                            <DataGridTextColumn Header="lastName" Binding="{Binding Path=lastName}" MinWidth="50" />
+                            <DataGridTextColumn Header="maidensName" Binding="{Binding Path=maidenName}" MinWidth="50" />
+                            <DataGridTextColumn Header="mothersName" Binding="{Binding Path=mothersName}" MinWidth="50" />
+                            <DataGridTextColumn Header="fathersName" Binding="{Binding Path=fathersName}" MinWidth="50" />
+                            <DataGridTextColumn Header="gender" Binding="{Binding Path=gender}" MinWidth="50" />
+                            <DataGridTextColumn Header="pesel" Binding="{Binding Path=pesel}" MinWidth="50" />
+                            <DataGridTextColumn Header="supervisedClass" Binding="{Binding Path=supervisedClass}" MinWidth="50" />
+                            <DataGridTextColumn Header="groups"  MinWidth="50" />
+                            <!-- TODO: subjects-->
+                            <!-- TODO: workHours-->
+                            <DataGridTemplateColumn Header="birthDate" CellTemplate="{StaticResource DateTemplate}" CellEditingTemplate="{StaticResource DateTemplate}"/>
+                            <DataGridTemplateColumn Header="employmentDate" CellTemplate="{StaticResource EmploymentDateTemplate}" CellEditingTemplate="{StaticResource EmploymentDateTemplate}"/>
+                            <DataGridTemplateColumn Header="photo" CellTemplate="{StaticResource PhotoTemplate}" CellEditingTemplate="{StaticResource PhotoEditTemplate}"/>
+                            <DataGridTemplateColumn Header="Delete" CellTemplate="{StaticResource DeleteButtonTemplate}"/>
 
-                    </DataGrid.Columns>
+                        </DataGrid.Columns>
 
-                </DataGrid>
-            </TabItem>
-        </TabControl>
-        <Grid Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Margin="0,5">
-            <Button  Content ="Filter" Margin="24,0,0,0" x:Name="testButton" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25"  Width="50"></Button>
-            <Button  Content ="Reset" Margin="427,0,0,0" x:Name="ResetButton" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25"  Width="50"></Button>
-            <TextBox  Margin="100,0,0,0" x:Name="filterBox" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25" Width="300"></TextBox>
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
+            <Grid Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Margin="0,5">
+                <Button  Content ="Filter" Margin="24,0,0,0" Command="{StaticResource FilterApplyCmd}"  VerticalAlignment="Top" HorizontalAlignment="Left" Height="25"  Width="50"></Button>
+                <Button  Content ="Reset"  Margin="427,0,0,0" Command="{StaticResource FilterResetCmd}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25"  Width="50"></Button>
+                <TextBox  Margin="100,0,0,0" x:Name="filterBox" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25" Width="300"></TextBox>
+            </Grid>
+
         </Grid>
-
     </Grid>
 </Window>
