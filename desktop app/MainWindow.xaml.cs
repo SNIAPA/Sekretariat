@@ -25,12 +25,58 @@ namespace desktop_app
     public partial class MainWindow : Window
     {
 
+        public string asd { get; set; } = "aqsd";
+        #region commands
+        
+        public static RoutedCommand ExportCmd = new RoutedCommand();
+        public static RoutedCommand ImportCmd = new RoutedCommand();
+        public static RoutedCommand FilterResetCmd = new RoutedCommand();
+        public static RoutedCommand FilterApplyCmd = new RoutedCommand();
+
+        private void SetupCommands()
+        {
+            this.CommandBindings.Add(
+                new CommandBinding(
+                    ExportCmd,
+                    Export));
+            this.CommandBindings.Add(
+                new CommandBinding(
+                    ImportCmd,
+                    Import));
+            this.CommandBindings.Add(
+                new CommandBinding(
+                    FilterResetCmd,
+                    FilterReset));
+            this.CommandBindings.Add(
+                new CommandBinding(
+                    FilterApplyCmd,
+                    FilterApply));
+        }
+
+        #endregion
+
+        #region hotkeys
+        public static Hotkey ExportHotkey;
+        public Hotkey ImportHotkey;
+        public Hotkey FilterReseHotkey;
+        public Hotkey FilterApplyHotkey;
+
+        private void SetupHotkeys()
+        {
+            ImportHotkey = new Hotkey(Key.I, ModifierKeys.Control, ImportCmd, this);
+            ExportHotkey = new Hotkey(Key.S, ModifierKeys.Control, ExportCmd, this);
+            FilterReseHotkey = new Hotkey(Key.R, ModifierKeys.Control, FilterResetCmd, this);
+            FilterApplyHotkey = new Hotkey(Key.F, ModifierKeys.Control, FilterApplyCmd, this);
+        }
+        #endregion
+
         School school = new School();
 
         public MainWindow()
         {
+            SetupCommands();
+            SetupHotkeys();
             InitializeComponent();
-
 
             FilterHelpButton.Click += FilterHelpButton_Click;
             filterBox.KeyDown += filterBox_KeyDown;

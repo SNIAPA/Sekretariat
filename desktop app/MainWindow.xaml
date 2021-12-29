@@ -12,24 +12,8 @@
         Width="885" 
         >
 
-    <Window.Resources>
-        <RoutedCommand x:Key="ExportCmd" />
-        <RoutedCommand x:Key="ImportCmd" />
-        <RoutedCommand x:Key="FilterResetCmd"/>
-        <RoutedCommand x:Key="FilterApplyCmd"/>
-    </Window.Resources>
-    <Window.InputBindings>
-        <KeyBinding Key="s" Modifiers="Ctrl" Command="{StaticResource ExportCmd}" />
-        <KeyBinding Key="i" Modifiers="Ctrl" Command="{StaticResource ImportCmd}" />
-        <KeyBinding Key="r" Modifiers="Ctrl" Command="{StaticResource FilterResetCmd}" />
-        <KeyBinding Key="f" Modifiers="Ctrl" Command="{StaticResource FilterApplyCmd}" />
-    </Window.InputBindings>
-    <Window.CommandBindings>
-        <CommandBinding Command="{StaticResource ExportCmd}" Executed="Export" />
-        <CommandBinding Command="{StaticResource ImportCmd}" Executed="Import" />
-        <CommandBinding Command="{StaticResource FilterResetCmd}" Executed="FilterReset" />
-        <CommandBinding Command="{StaticResource FilterApplyCmd}" Executed="FilterApply" />
-    </Window.CommandBindings>
+
+ 
 
     <Grid ShowGridLines="False">
         <Grid.RowDefinitions >
@@ -39,15 +23,15 @@
         <DockPanel DockPanel.Dock="Top" Grid.Row="0">
             <Menu  Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Stretch"  Background="LightGray" BorderBrush="Gray" BorderThickness="1" >
                 <MenuItem Header="File"  BorderBrush="Gray" BorderThickness="1">
-                    <MenuItem  Header="_Export" Command="{StaticResource ExportCmd}"/>
-                    <MenuItem  Header="_Import" Command="{StaticResource ImportCmd}"/>
+                    <MenuItem  Header="_Export" Command="{x:Static local:MainWindow.ExportCmd}"/>
+                    <MenuItem  Header="_Import" Command="{x:Static local:MainWindow.ImportCmd}"/>
                 </MenuItem>
                 <MenuItem Header="Help"  BorderBrush="Gray" BorderThickness="1">
                     <MenuItem x:Name="FilterHelpButton" Header="_Filter"/>
                 </MenuItem>
-                <MenuItem Header="Hotkeys"  BorderBrush="Gray" BorderThickness="1">
+                <MenuItem Header="Hotkeys"  BorderBrush="Gray" BorderThickness="1" DataContext="local:MainWindow">
                     <MenuItem Command="Cut" />
-                    <MenuItem Command="ExportCmd" />
+                    <MenuItem Header="{Binding Path=asd}" InputGestureText="asd" />
 
                 </MenuItem>
             </Menu>
@@ -169,8 +153,9 @@
                 </TabItem>
             </TabControl>
             <Grid Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Margin="0,5">
-                <Button  Content ="Filter" Margin="24,0,0,0" Command="{StaticResource FilterApplyCmd}"  VerticalAlignment="Top" HorizontalAlignment="Left" Height="25"  Width="50"></Button>
-                <Button  Content ="Reset"  Margin="427,0,0,0" Command="{StaticResource FilterResetCmd}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25"  Width="50"></Button>
+                
+                <Button  Content ="Filter" Margin="24,0,0,0" Command="{x:Static local:MainWindow.FilterApplyCmd}"  VerticalAlignment="Top" HorizontalAlignment="Left" Height="25"  Width="50"></Button>
+                <Button  Content ="Reset"  Margin="427,0,0,0" Command="{x:Static local:MainWindow.FilterResetCmd}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25"  Width="50"></Button>
                 <TextBox  Margin="100,0,0,0" x:Name="filterBox" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25" Width="300"></TextBox>
             </Grid>
 

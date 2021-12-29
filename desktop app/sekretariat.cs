@@ -12,6 +12,9 @@ namespace desktop_app
 {
     class School
     {
+
+        
+
         public DataTable students;
         public DataTable teachers;
         public DataTable groups;
