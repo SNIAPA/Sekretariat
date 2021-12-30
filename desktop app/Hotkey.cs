@@ -5,11 +5,14 @@ using System.Windows.Input;
 using System.Windows;
 using System.Windows.Data;
 using System.Diagnostics;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace desktop_app
 {
     public class Hotkey
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         public Key key { get; set; }
 
         public ModifierKeys modifiers { get; set; }
@@ -34,8 +37,12 @@ namespace desktop_app
             UpdateKey(key, modifiers);
         }
 
-        public override string ToString()
+
+
+        public void UpdateKey(Key _key, ModifierKeys _modifiers)
         {
+            key = _key;
+            modifiers = _modifiers;
             var str = new StringBuilder();
 
             if (modifiers.HasFlag(ModifierKeys.Control))
@@ -48,17 +55,7 @@ namespace desktop_app
                 str.Append("Win + ");
 
             str.Append(key);
-
-            return str.ToString();
-        }
-
-
-        public void UpdateKey(Key _key, ModifierKeys _modifiers)
-        {
-            key = _key;
-            modifiers = _modifiers;
-
-            this.InputGestureText = this.ToString();
+            this.InputGestureText = str.ToString();
             if (currBinding == null )
             {
                 currBinding = new KeyBinding(command, key, modifiers);

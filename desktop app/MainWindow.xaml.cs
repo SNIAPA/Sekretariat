@@ -18,7 +18,6 @@ using System.ComponentModel;
 
 namespace desktop_app
 {
-    // TODO: editable hotkeys
     // TODO: group add and class add for student and teacher
     // TODO: raports
 
@@ -142,8 +141,6 @@ namespace desktop_app
 
             (this.LastMenuItem.DataContext as Hotkey).UpdateKey(LastKeyPressed, LastModifierPressed);
             this.LastMenuItem.InputGestureText = (this.LastMenuItem.DataContext as Hotkey).InputGestureText;
-            this.LastMenuItem.UpdateLayout();
-
         }
 
 
