@@ -15,7 +15,7 @@
 
  
 
-    <Grid ShowGridLines="False">
+    <Grid ShowGridLines="True">
         <Grid.RowDefinitions >
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*" ></RowDefinition>
@@ -23,21 +23,27 @@
         <DockPanel DockPanel.Dock="Top" Grid.Row="0">
             <Menu  Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Stretch"  Background="LightGray" BorderBrush="Gray" BorderThickness="1" >
                 <MenuItem Header="File"  BorderBrush="Gray" BorderThickness="1">
-                    <MenuItem  Header="_Export" DataContext="{x:Static local:MainWindow.ExportHotkey}" Command="{Binding command}" InputGestureText="{Binding}"/>
-                    <MenuItem  Header="_Import" DataContext="{x:Static local:MainWindow.ImportHotkey}" Command="{Binding command}" InputGestureText="{Binding}"/>
+                    <MenuItem  Header="_Export" DataContext="{x:Static local:MainWindow.ExportHotkey}" Command="{Binding command}" />
+                    <MenuItem  Header="_Import" DataContext="{x:Static local:MainWindow.ImportHotkey}" Command="{Binding command}" />
                 </MenuItem>
                 <MenuItem Header="Help"  BorderBrush="Gray" BorderThickness="1">
                     <MenuItem x:Name="FilterHelpButton" Header="_Filter"/>
                 </MenuItem>
                 <MenuItem Header="Hotkeys"  BorderBrush="Gray" BorderThickness="1" >
-                    <MenuItem DataContext="{x:Static local:MainWindow.ExportHotkey}"  Header="Export" InputGestureText="{Binding Path=InputGestureText, Mode=TwoWay}" Click="test"/>
-                    <MenuItem DataContext="{x:Static local:MainWindow.ImportHotkey}"  Header="Import" InputGestureText="{Binding Path=InputGestureText}"/>
-                    <MenuItem DataContext="{x:Static local:MainWindow.FilterResetHotkey}"  Header="FilterReset" InputGestureText="{Binding Path=InputGestureText}"/>
-                    <MenuItem DataContext="{x:Static local:MainWindow.FilterApplyHotkey}"  Header="FilterApply" InputGestureText="{Binding Path=InputGestureText}"/>
+                    <MenuItem DataContext="{x:Static local:MainWindow.ExportHotkey}"  Header="Export" InputGestureText="{Binding InputGestureText, Mode=TwoWay}" Click="test"/>
+                    <MenuItem DataContext="{x:Static local:MainWindow.ImportHotkey}"  Header="Import" InputGestureText="{Binding InputGestureText, Mode=TwoWay}" Click="test"/>
+                    <MenuItem DataContext="{x:Static local:MainWindow.FilterResetHotkey}"  Header="FilterReset" InputGestureText="{Binding InputGestureText, Mode=TwoWay}" Click="test"/>
+                    <MenuItem DataContext="{x:Static local:MainWindow.FilterApplyHotkey}"  Header="FilterApply" InputGestureText="{Binding InputGestureText, Mode=TwoWay}" Click="test"/>
 
                 </MenuItem>
             </Menu>
         </DockPanel>
+        <Popup x:Name="Popup" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="200" Placement="Center">
+            <Grid  Background="LightBlue" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Label x:Name="PopupText" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Press a key"/>
+                <Button VerticalAlignment="Bottom" Height="25" Content="Done" Click="test2"></Button>
+            </Grid>
+        </Popup>
         <Grid Margin="0,2,0,0" ShowGridLines="False" Grid.Row="1"
             >
             <Grid.Resources>

@@ -14,14 +14,13 @@ namespace desktop_app
 
         public ModifierKeys modifiers { get; set; }
 
-        public ICommand command { get; }
+        public RoutedCommand command { get; }
 
         public UIElement owner { get; }
 
-        public string InputGestureText { get; set; } = "press key";
-
         public KeyBinding currBinding { get; set; }
 
+        public string InputGestureText { get; set; }
 
         public Hotkey(Key _key, ModifierKeys _modifiers, ExecutedRoutedEventHandler executed , UIElement _owner)
         {
@@ -59,15 +58,15 @@ namespace desktop_app
             key = _key;
             modifiers = _modifiers;
 
-            InputGestureText = this.ToString();
+            this.InputGestureText = this.ToString();
             if (currBinding == null )
             {
-                owner.InputBindings.Add(new KeyBinding(command,key,modifiers));
                 currBinding = new KeyBinding(command, key, modifiers);
+                owner.InputBindings.Add(currBinding);
                 return;
             }
-            int index = -1
-            for ()
+            int index = owner.InputBindings.IndexOf(currBinding);
+
             currBinding = new KeyBinding(command, key, modifiers);
 
             owner.InputBindings[index] = currBinding;
