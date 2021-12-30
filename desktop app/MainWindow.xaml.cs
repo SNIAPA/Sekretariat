@@ -18,8 +18,10 @@ using System.ComponentModel;
 
 namespace desktop_app
 {
-    // TODO: group add and class add for student and teacher
+    // TODO: refrence fields with validation check
     // TODO: raports
+    // TODO: settings menu for hotkeys
+    //
 
     public partial class MainWindow : Window
     {
@@ -63,6 +65,7 @@ namespace desktop_app
             student_list_grid.ItemsSource = school.students.DefaultView;
             group_list_grid.ItemsSource = school.groups.DefaultView;
             teacher_list_grid.ItemsSource = school.teachers.DefaultView;
+            employee_list_grid.ItemsSource = school.employees.DefaultView;
 
         }
 
@@ -102,6 +105,9 @@ namespace desktop_app
                     case 2:
                         school.teachers.DefaultView.RowFilter = filterBox.Text;
                         break;
+                    case 3:
+                        school.employees.DefaultView.RowFilter = filterBox.Text;
+                        break;
                 }
                 LinearGradientBrush myBrush = new LinearGradientBrush();
                 filterBox.Background = myBrush;
@@ -125,6 +131,7 @@ namespace desktop_app
             student_list_grid.ItemsSource = importrted.students.DefaultView;
             group_list_grid.ItemsSource = importrted.groups.DefaultView;
             teacher_list_grid.ItemsSource = importrted.teachers.DefaultView;
+            employee_list_grid.ItemsSource = importrted.employees.DefaultView;
         }
 
 

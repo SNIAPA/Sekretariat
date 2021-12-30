@@ -18,6 +18,7 @@ namespace desktop_app
         public DataTable students;
         public DataTable teachers;
         public DataTable groups;
+        public DataTable employees;
 
         private DataTable CreateEmptyDataTable(Type myType)
         {
@@ -33,7 +34,7 @@ namespace desktop_app
 
         public class Person
         {
-            public Guid id { get; set; }
+            public int id { get; set; }
             public string firstName { get; set; }
             public string secondName { get; set; }
             public string lastName { get; set; }
@@ -49,47 +50,56 @@ namespace desktop_app
 
         public class Group
         {
-            public Guid id { get; set; }
+            public int id { get; set; }
             public string name { get; set; }
             public Group() { }
         }
 
         public class Student : Person
         {
-            public Group grade { get; set;}
-            public List<Group> groups { get; set;}
+            public string grade { get; set;}
+            public string groups { get; set;}
         }
 
         public class Employee : Person
         {
             public string jobPosition { get; set; }
+            public string workHours { get; set; }
+            public DateTime employmentDate { get; set; }
+
         }
+
 
         public class Teacher : Employee
         {
-            public Group supervisedClass { get; set; }
-            public List<string> subjects { get; set; }
-            public List<KeyValuePair<Group, int>> workHours {get; set;}
-            public DateTime employmentDate { get; set; }
-            public Teacher() { }
+            public string supervisedClasses { get; set; }
+            public string subjects { get; set; } 
+
         }
 
 
         public School()
         {
-            students = CreateEmptyDataTable(typeof(Student));
-            groups   = CreateEmptyDataTable(typeof(Group));
-            teachers = CreateEmptyDataTable(typeof(Teacher));
+            students  = CreateEmptyDataTable(typeof(Student));
+            groups    = CreateEmptyDataTable(typeof(Group));
+            teachers  = CreateEmptyDataTable(typeof(Teacher));
+            employees = CreateEmptyDataTable(typeof(Employee));
 
-            students.Columns["photo"].DefaultValue = "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg";
+            students.Columns["photo"].DefaultValue = "https://www.kindpng.com/picc/m/451-4517876_default-profile-hd-png-download.png";
             students.Columns["birthDate"].DefaultValue = DateTime.Now;
-            students.Columns["id"].DefaultValue = Guid.NewGuid();
-            groups.Columns["id"].DefaultValue = Guid.NewGuid();
-            teachers.Columns["photo"].DefaultValue = "https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg";
+            students.Columns["id"].AutoIncrement = true;
+            groups.Columns["id"].AutoIncrement = true;
+            teachers.Columns["photo"].DefaultValue = "https://www.kindpng.com/picc/m/451-4517876_default-profile-hd-png-download.png";
+            teachers.Columns["id"].AutoIncrement = true;
             teachers.Columns["birthDate"].DefaultValue = DateTime.Now;
             teachers.Columns["employmentDate"].DefaultValue = DateTime.Now;
-        }
+            employees.Columns["photo"].DefaultValue = "https://www.kindpng.com/picc/m/451-4517876_default-profile-hd-png-download.png";
+            employees.Columns["id"].AutoIncrement = true;
+            employees.Columns["birthDate"].DefaultValue = DateTime.Now;
+            employees.Columns["employmentDate"].DefaultValue = DateTime.Now;
 
+
+        }
 
 
     }

@@ -15,7 +15,7 @@
 
  
 
-    <Grid ShowGridLines="True">
+    <Grid ShowGridLines="False">
         <Grid.RowDefinitions >
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*" ></RowDefinition>
@@ -93,7 +93,7 @@
                             <DataGridTextColumn Header="gender" Binding="{Binding Path=gender}" MinWidth="50" />
                             <DataGridTextColumn Header="pesel" Binding="{Binding Path=pesel}" MinWidth="50" />
                             <DataGridTextColumn Header="grade" Binding="{Binding Path=grade}" MinWidth="50" />
-                            <DataGridTextColumn Header="groups"  MinWidth="50" />
+                            <DataGridTextColumn Header="groups"  MinWidth="50" Binding="{Binding groups}"/>
                             <DataGridTemplateColumn Header="birthDate" CellTemplate="{StaticResource DateTemplate}" CellEditingTemplate="{StaticResource DateTemplate}"/>
                             <DataGridTemplateColumn Header="photo" CellTemplate="{StaticResource PhotoTemplate}" CellEditingTemplate="{StaticResource PhotoEditTemplate}"/>
                             <DataGridTemplateColumn Header="Delete" CellTemplate="{StaticResource DeleteButtonTemplate}"/>
@@ -146,13 +146,49 @@
                             <DataGridTextColumn Header="fathersName" Binding="{Binding Path=fathersName}" MinWidth="50" />
                             <DataGridTextColumn Header="gender" Binding="{Binding Path=gender}" MinWidth="50" />
                             <DataGridTextColumn Header="pesel" Binding="{Binding Path=pesel}" MinWidth="50" />
-                            <DataGridTextColumn Header="supervisedClass" Binding="{Binding Path=supervisedClass}" MinWidth="50" />
-                            <DataGridTextColumn Header="groups"  MinWidth="50" />
-                            <!-- TODO: subjects-->
-                            <!-- TODO: workHours-->
-                            <DataGridTemplateColumn Header="birthDate" CellTemplate="{StaticResource DateTemplate}" CellEditingTemplate="{StaticResource DateTemplate}"/>
+                            <DataGridTextColumn Header="supervisedClasses" Binding="{Binding Path=supervisedClasses}" MinWidth="50" />
+                            <DataGridTextColumn Header="subjects" MinWidth="50" Binding="{Binding Path=subjects}"/>
+                            <DataGridTextColumn Header="jobPosition" MinWidth="50" Binding="{Binding Path=jobPosition}"/>
+                            <DataGridTextColumn Header="workHours" MinWidth="50" Binding="{Binding Path=workHours}"/>
+                            <DataGridTemplateColumn Header="birthDate"  CellTemplate="{StaticResource DateTemplate}" CellEditingTemplate="{StaticResource DateTemplate}"/>
                             <DataGridTemplateColumn Header="employmentDate" CellTemplate="{StaticResource EmploymentDateTemplate}" CellEditingTemplate="{StaticResource EmploymentDateTemplate}"/>
                             <DataGridTemplateColumn Header="photo" CellTemplate="{StaticResource PhotoTemplate}" CellEditingTemplate="{StaticResource PhotoEditTemplate}"/>
+                            
+                                <DataGridTemplateColumn Header="Delete" CellTemplate="{StaticResource DeleteButtonTemplate}"/>
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Employees">
+
+                    <DataGrid AutoGenerateColumns="False" 
+                              Height="auto"
+                              MinHeight="300"
+                              MaxHeight="700"
+                              HorizontalAlignment="Left" 
+                              Name="employee_list_grid" 
+                              VerticalAlignment="Top" 
+                              CanUserSortColumns="True"
+                              CanUserDeleteRows="True"
+                              RowHeight="50" >
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="id" IsReadOnly="True" Binding="{Binding Path=id}" CanUserResize="False" Width="230" />
+                            <DataGridTextColumn Header="firstName" Binding="{Binding Path=firstName}" MinWidth="50" />
+                            <DataGridTextColumn Header="secondName" Binding="{Binding Path=secondName}" MinWidth="50" />
+                            <DataGridTextColumn Header="lastName" Binding="{Binding Path=lastName}" MinWidth="50" />
+                            <DataGridTextColumn Header="maidensName" Binding="{Binding Path=maidenName}" MinWidth="50" />
+                            <DataGridTextColumn Header="mothersName" Binding="{Binding Path=mothersName}" MinWidth="50" />
+                            <DataGridTextColumn Header="fathersName" Binding="{Binding Path=fathersName}" MinWidth="50" />
+                            <DataGridTextColumn Header="gender" Binding="{Binding Path=gender}" MinWidth="50" />
+                            <DataGridTextColumn Header="pesel" Binding="{Binding Path=pesel}" MinWidth="50" />
+                            <DataGridTextColumn Header="jobPosition" MinWidth="50" Binding="{Binding Path=jobPosition}"/>
+                            <DataGridTextColumn Header="workHours" MinWidth="50" Binding="{Binding Path=workHours}"/>
+                            <DataGridTemplateColumn Header="birthDate"  CellTemplate="{StaticResource DateTemplate}" CellEditingTemplate="{StaticResource DateTemplate}"/>
+                            <DataGridTemplateColumn Header="employmentDate" CellTemplate="{StaticResource EmploymentDateTemplate}" CellEditingTemplate="{StaticResource EmploymentDateTemplate}"/>
+                            <DataGridTemplateColumn Header="photo" CellTemplate="{StaticResource PhotoTemplate}" CellEditingTemplate="{StaticResource PhotoEditTemplate}"/>
+
                             <DataGridTemplateColumn Header="Delete" CellTemplate="{StaticResource DeleteButtonTemplate}"/>
 
                         </DataGrid.Columns>
