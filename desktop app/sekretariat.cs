@@ -7,9 +7,18 @@ using Microsoft.Win32;
 using System.Data;
 using System.Reflection;
 using System.Diagnostics;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace desktop_app
 {
+    class CustomDateTimeConverter : IsoDateTimeConverter
+    {
+        public CustomDateTimeConverter()
+        {
+            base.DateTimeFormat = "yyyy-MM-dd";
+        }
+    }
     class School
     {
 
@@ -44,6 +53,7 @@ namespace desktop_app
             public string gender { get; set; }
             public string pesel { get; set; }
             public string photo { get; set; }
+            [JsonConverter(typeof(CustomDateTimeConverter))]
             public DateTime birthDate { get; set; }
             public Person() { }
         }
@@ -65,6 +75,7 @@ namespace desktop_app
         {
             public string jobPosition { get; set; }
             public string workHours { get; set; }
+            [JsonConverter(typeof(CustomDateTimeConverter))]
             public DateTime employmentDate { get; set; }
 
         }

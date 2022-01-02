@@ -27,7 +27,7 @@
                     <MenuItem  Header="_Import" DataContext="{x:Static local:MainWindow.ImportHotkey}" Command="{Binding command}" />
                 </MenuItem>
                 <MenuItem Header="Help"  BorderBrush="Gray" BorderThickness="1">
-                    <MenuItem x:Name="FilterHelpButton" Header="_Filter"/>
+                    <MenuItem x:Name="FilterHelpButton" Click="FilterHelpButton_Click" Header="_Filter"/>
                 </MenuItem>
                 <MenuItem Header="Hotkeys"  BorderBrush="Gray" BorderThickness="1" >
                     <MenuItem DataContext="{x:Static local:MainWindow.ExportHotkey}"  Header="Export" InputGestureText="{Binding InputGestureText, Mode=TwoWay}" Click="test"/>
@@ -197,10 +197,9 @@
                 </TabItem>
             </TabControl>
             <Grid Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="30" Margin="0,5">
-
-                <Button  Content ="Filter" Margin="24,0,0,0" DataContext="{x:Static local:MainWindow.FilterApplyHotkey}" Command="{Binding command}"  VerticalAlignment="Top" HorizontalAlignment="Left" Height="25"  Width="50"></Button>
+                <Button  Content ="Filter" Margin="24,0,0,0"  DataContext="{x:Static local:MainWindow.FilterApplyHotkey}" Command="{Binding command}"  VerticalAlignment="Top" HorizontalAlignment="Left" Height="25"  Width="50"></Button>
                 <Button  Content ="Reset"  Margin="427,0,0,0" DataContext="{x:Static local:MainWindow.FilterResetHotkey}" Command="{Binding command}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25"  Width="50"></Button>
-                <TextBox  Margin="100,0,0,0" x:Name="filterBox" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25" Width="300"></TextBox>
+                <TextBox  Margin="100,0,0,0" x:Name="filterBox" KeyDown="filterBox_KeyDown" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25" Width="300"></TextBox>
             </Grid>
 
         </Grid>

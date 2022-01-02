@@ -18,10 +18,8 @@ using System.ComponentModel;
 
 namespace desktop_app
 {
-    // TODO: refrence fields with validation check
     // TODO: raports
     // TODO: settings menu for hotkeys
-    //
 
     public partial class MainWindow : Window
     {
@@ -92,6 +90,8 @@ namespace desktop_app
 
         private void FilterApply(object sender, RoutedEventArgs e)
         {
+            Debug.WriteLine("test");
+
             try
             {
                 switch (tableControl.SelectedIndex)

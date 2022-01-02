@@ -30,6 +30,9 @@ namespace desktop_app
             if (sfd.ShowDialog() != true)
                 return false;
 
+            School eSchool = school;
+
+
             File.WriteAllText(sfd.FileName, JsonConvert.SerializeObject(school));
             return true;
 
